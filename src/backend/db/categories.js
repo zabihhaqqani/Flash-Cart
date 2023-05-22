@@ -8,20 +8,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Laptop",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Discover the perfect companion for work, entertainment, and everything in between with our exceptional range of laptops. Designed to deliver unrivaled performance and versatility, our laptops are built to empower you in the digital world.",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "Mobiles",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "Introducing our latest collection of cutting-edge mobile phones that combine sleek design with powerful performance. Our mobile phones are packed with advanced features and innovative technologies, offering you a seamless and immersive mobile experience",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Headphones",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Immerse yourself in superior sound quality and elevate your audio experience with our exceptional range of headphones. Designed for music enthusiasts and avid gamers alike, our headphones deliver crystal-clear audio and exceptional comfort for extended listening sessions",
   },
 ];
