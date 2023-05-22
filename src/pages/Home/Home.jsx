@@ -1,9 +1,8 @@
 import '../Home/Home.css'
+import { Nav } from './Nav';
 
 export function Home() {
   return <>
-  <header>
-    <h1>This is website</h1>
-  </header>
+  <Nav/>
   </>;
 }

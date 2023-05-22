@@ -1,0 +1,40 @@
+.search-bar {
+  border: 1px solid #666666;
+  border-radius: 5px;
+  padding: 0.5rem 10rem 0.5rem 1rem;
+  font-family: "Poppins", sans-serif;
+}
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  line-height: 40px;
+  padding: 1rem;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+.cart {
+  color: var(--primarycolor);
+}
+
+.login-btn {
+  background-color: var(--primarycolor);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-weight: 500;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+}
+.login-btn:hover {
+  background-color: #fc4c52d8;
+}
+.nav-icons i {
+  margin: 1rem;
+}
+
+.nav-icons i:hover {
+  /* font-size: 25px; */
+  cursor: pointer;
+  transition: 0.5s;
+}
