@@ -1,0 +1,15 @@
+.add-to-cart-btn{
+    padding: 0.5rem;
+    margin: 1rem 0rem 0rem 0rem;
+    width: 100%;
+    border: none;
+     font-family: "Poppins", sans-serif;
+    background-color:  #fc4c51;
+    color: white;
+    border-radius: 5px;
+}
+
+.add-to-cart-btn:hover{
+    cursor: pointer;
+    background-color: #ff0810;
+}

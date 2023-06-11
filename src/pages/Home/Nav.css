@@ -38,3 +38,16 @@
   cursor: pointer;
   transition: 0.5s;
 }
+
+.icon-number{
+  position: relative;
+  top:-12px;
+  left: -8px;
+  font-size: 10px;
+  background-color: #4BB543;
+  color: white;
+  padding: 0.4rem;
+  border-radius: 50%;
+  display: inline-block;
+  /* width: 40px; */
+}
