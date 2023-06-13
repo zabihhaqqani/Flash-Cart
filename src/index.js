@@ -19,19 +19,19 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-              <Router>
-    <CategoryProvider>
-      <ProductsProvider>
-        <FilterContextProvider>
-          <WishlistProvider>
-            <CartProvider>
+    <Router>
+      <CategoryProvider>
+        <ProductsProvider>
+          <FilterContextProvider>
+            <WishlistProvider>
+              <CartProvider>
                 <App />
-            </CartProvider>
-          </WishlistProvider>
-        </FilterContextProvider>
-      </ProductsProvider>
-    </CategoryProvider>
-              </Router>
+              </CartProvider>
+            </WishlistProvider>
+          </FilterContextProvider>
+        </ProductsProvider>
+      </CategoryProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -64,6 +64,7 @@ export function Filters() {
             type="checkbox"
             value="Phone"
             id="Phone"
+            checked={category.includes("Phone")}
             onChange={e => handleCategoryChange(e, "Phone")}
           />
           <label for="Laptop"></label>Headphones
@@ -71,6 +72,8 @@ export function Filters() {
             type="checkbox"
             value="Headphones"
             id="Headphones"
+            checked={category.includes("Headphones")}
+
             onChange={e => handleCategoryChange(e, "Headphones")}
           />
         </div>
