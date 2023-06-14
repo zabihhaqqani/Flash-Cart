@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 // import { useProductContext } from "./ProductsContext";
 import FilterReducer from "../reducer/FilterRecuder";
 import { useProductContext } from "./ProductsContext";
@@ -47,16 +47,16 @@ export const FilterContextProvider = ({ children }) => {
     dispatch({ type: "CATEGORY", payload: {option,isChecked} });
   };
 
+
   const updateFilterValue = (e) => {
     const value = e.target.value
     dispatch({type:"RANGE",payload:value})
   }
- 
   const clearFilters = (e) => {
     const value = e.target.innerText;
+  
     dispatch({type:"CLEAR_ALL_FILTERS",payload:value})
   }
-
    const searchFilter = (e) => {
       const inputValue = e.target.value
       dispatch({type:"SEARCH_FILTER",payload:{inputValue,products}})

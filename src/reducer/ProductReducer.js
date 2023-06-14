@@ -28,7 +28,11 @@ export default function ProductReducer(state, action) {
             ...state
           
           }
-    
+          case  "SHOW SINGLE PRODUCT":
+            return {
+              ...state,
+              singleProduct:[action.payload]
+            };
     default:
       return state;
   }

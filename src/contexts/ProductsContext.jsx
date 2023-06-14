@@ -6,6 +6,8 @@ import {
 } from "react";
 import ProductReducer from "../reducer/ProductReducer";
 
+import { useNavigate } from "react-router-dom";
+
 export const ProductsContext = createContext();
 
 export function ProductsProvider({ children }) {
@@ -13,8 +15,10 @@ export function ProductsProvider({ children }) {
     isLoading: false,
     isError: false,
     products: [],
+    singleProduct:[]
 };
 
+const navigate = useNavigate()
   // use reducer
   const [state, dispatch] = useReducer(ProductReducer, initalState);
 
@@ -30,12 +34,17 @@ export function ProductsProvider({ children }) {
     }
   };
 
+  const showSingleProduct = (product) => {
+    dispatch({type:"SHOW SINGLE PRODUCT",payload:product})
+    navigate(`/product/${product._id}`)
+  }
+
   useEffect(() => {
     getProductsData();
   }, []);
 
   return (
-    <ProductsContext.Provider value={{...state}}>
+    <ProductsContext.Provider value={{...state,showSingleProduct}}>
       {children}
     </ProductsContext.Provider>
   );

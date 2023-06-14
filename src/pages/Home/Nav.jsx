@@ -1,5 +1,5 @@
 import { useFilterContext } from "../../contexts/FilterContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../Home/Nav.css";
 import { useCartContext } from "../../contexts/CartContext";
 import { useWishlistContext } from "../../contexts/WishlistContext";
@@ -8,7 +8,7 @@ export function Nav() {
   const { searchFilter } = useFilterContext();
   const {cartItems} = useCartContext()
     const {wishListProducts} = useWishlistContext()
-
+const navigate = useNavigate()
 
   const getActive = ({ isActive }) => ({
     color: isActive ? "red" : "black",
@@ -34,13 +34,13 @@ export function Nav() {
             Explore
           </NavLink>
           <button className="login-btn">Login</button>
-          <i class="fa-solid fa-user fa-lg"></i>
+          <i class="fa-solid fa-user fa-lg" onClick={()=>navigate("/login")}></i>
           <NavLink style={getActive} to="/wishlist">
             {" "}
-            <i class="fa-solid fa-heart fa-lg"><span className="icon-number">{wishListProducts.length}</span></i>{" "}
+            <i className="fa-solid fa-heart fa-lg"><span className="icon-number">{wishListProducts.length}</span></i>{" "}
           </NavLink>
           <NavLink  style={getActive} to="/cart">
-          <i class="fa-solid fa-cart-shopping fa-lg"><span className="icon-number">{cartItems.length}</span></i>{" "}
+          <i className="fa-solid fa-cart-shopping fa-lg"><span className="icon-number">{cartItems.length}</span></i>{" "}
  
           </NavLink>
         </div>

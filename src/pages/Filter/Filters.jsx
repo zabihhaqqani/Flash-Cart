@@ -10,7 +10,7 @@ export function Filters() {
     handleSortChange,
     minRating,
     maxRating,
-    valueRating,
+    valueRating,defaultRange,values,
     category,
     sort
 
@@ -21,7 +21,7 @@ export function Filters() {
       <div className="filters-container">
         <button onClick={e => clearFilters(e)}>Clear All Filters</button>
         <div className="range-container">
-          <label for="range">
+          <label htmlFor="range">
             <strong>Rating: </strong>
           </label>
           <div className="rating-range">
@@ -30,9 +30,9 @@ export function Filters() {
           </div>
           <input
             type="range"
-            min={minRating}
-            max={maxRating}
-            // value={ }
+            min="0"
+            max="5"
+            defaultValue="0"
              id="range"
             name="range"
             step="0.5"
@@ -50,7 +50,7 @@ export function Filters() {
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <h3>Category</h3>
-          <label for="Laptop"></label>Laptop
+          <label htmlFor="Laptop"></label>Laptop
           <input
             type="checkbox"
             value="Laptop"
@@ -59,7 +59,7 @@ export function Filters() {
             checked={category.includes("Laptop")}
             onChange={e => handleCategoryChange(e, "Laptop")}
           />
-          <label for="Laptop"></label>Phone
+          <label htmlFor="Headphones"></label>Phone
           <input
             type="checkbox"
             value="Phone"
@@ -67,7 +67,7 @@ export function Filters() {
             checked={category.includes("Phone")}
             onChange={e => handleCategoryChange(e, "Phone")}
           />
-          <label for="Laptop"></label>Headphones
+          <label htmlFor="Headphones"></label>Headphones
           <input
             type="checkbox"
             value="Headphones"
@@ -79,7 +79,7 @@ export function Filters() {
         </div>
 
         <div>
-          <label for="low-to-high">
+          <label htmlFor="low-to-high">
             <input
               type="radio"
               name="price"
@@ -91,7 +91,7 @@ export function Filters() {
             />
             Low to High
           </label>
-          <label for="high-to-low">
+          <label htmlFor="high-to-low">
             <input
               type="radio"
               name="price"

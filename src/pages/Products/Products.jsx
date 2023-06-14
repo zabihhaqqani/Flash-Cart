@@ -5,13 +5,14 @@ import { useWishlistContext } from "../../contexts/WishlistContext";
 import { Filters } from "../Filter/Filters";
 import "../Products/Products.css";
 import { useCartContext } from "../../contexts/CartContext";
+import {Navigate,useNavigate} from "react-router"
 
 export function Products() {
   const { products, isLoading } = useProductContext();
   const { sort,range,inputValue,categorySelection,category } = useFilterContext();
-  const {addToWishlist,iconName} = useWishlistContext()
-  const {addToCart,isAddedToCart} = useCartContext()
-
+  const {addToWishlist,iconName,removeFromWishlist,wishListProducts} = useWishlistContext()
+  const {addToCart,cartButton,cartItems} = useCartContext()
+  const {showSingleProduct} = useProductContext()
   const sortByPrice = (products, sort) => {
     const sortedProducts = [...products]?.sort((a, b) =>
       sort === "low-to-high"
@@ -67,7 +68,7 @@ export function Products() {
   const sortedProducts = sortByCategory(sortedBySearch, category);
 
 
-  
+  const navigate = useNavigate()
 
   // console.log(name)
   return (
@@ -86,12 +87,21 @@ export function Products() {
                     className="category-card"
                     key={_id}
                     >
-                    <i style={{color:"red"}}  onClick={()=>addToWishlist(product)} className={iconName}>
-                      </i>                    
+                      {wishListProducts?.find(item=>item._id===_id)?
+                      <i style={{color:"red"}} onClick={()=>removeFromWishlist(product)} className="fa-solid fa-heart"></i>:
+                      <i style={{color:"blue"}}  onClick={()=>addToWishlist(product)} className="fa-regular fa-heart" >
+                      </i>  }
+                  <div onClick={()=>showSingleProduct(product)}> 
+                    
+                                         
                     <h3>{name}</h3>
                     <p>₹{price}</p>
                     <p>₹{category}</p>
-                    <button onClick={(e)=>addToCart(product,e,_id)} value="Add to Cart" className="add-to-cart-btn"> {isAddedToCart}Add to Cart</button>
+                  </div>
+                    <button onClick={(e)=>addToCart(product,e,_id)} value="Add to Cart" className="add-to-cart-btn">  
+                     {cartItems?.find(item=>item._id === _id)?"Go to Cart":"Add  to Cart"}
+                    </button>
+                    
                   </div>
                 );
               })}

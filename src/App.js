@@ -5,6 +5,10 @@ import { Nav } from "./pages/Home/Nav";
 import { Products } from "./pages/Products/Products";
 import { Wishlist } from "./pages/Wishlist/Wishlist";
 import { Cart } from "./pages/Cart/Cart";
+import { RequiresAuth } from "./Auth/RequiresAuth";
+import { Login } from "./pages/Login/Login";
+import { ProductPage } from "./pages/ProductDetailPage/ProductPage";
+import { AuthHandler } from "./Auth/AuthHandler";
 
 function App() {
   return (
@@ -13,9 +17,27 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/wishlist"
+          element={
+            <RequiresAuth>
+              <Wishlist />
+            </RequiresAuth>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/:productId" element={<ProductPage />} />
+
+        <Route
+          path="/cart"
+          element={
+            <RequiresAuth>
+              <Cart />
+            </RequiresAuth>
+          }
+        />
       </Routes>
+      {/* <AuthHandler /> */}
     </div>
   );
 }

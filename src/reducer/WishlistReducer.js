@@ -10,10 +10,8 @@ export default function WishlistReducer(state, action) {
           ),
           action.payload,
         ],
-        // iconName: "fa-solid fa-heart",
       };
       case "REMOVE_FROM_WISHLIST" :
-        console.log(action.payload._id)
         return{
             ...state,
             wishListProducts:[...state.wishListProducts.filter(product=> product._id !== action.payload._id)]

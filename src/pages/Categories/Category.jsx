@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 export function Category() {
   const { categoriesData, loading } = useContext(CategoryContext);
   const {dispatch} = useFilterContext();
+  
   const categorySelector = (categoryName) => {
     dispatch({type:"CATEGORY_SELECTOR",payload:categoryName})
   }

@@ -5,20 +5,20 @@ export default function FilterReducer(state, action) {
         ...state,
       };
     case 'SORT':
-      console.log(action.payload)
       return {
         ...state,
         sort: action.payload,
       };
    
-    case "CATEGORY":
+      case "CATEGORY":
+      
       return {
         ...state,
         checkedCheckbox: !state.checkedCheckbox,
         category: action.payload.isChecked
           ? [...state.category, action.payload.option]
           : state.category.length > 0
-          ? state.category.filter(
+          ? state.category?.filter(
               categoryname => categoryname !== action.payload.option
             )
           : [],
@@ -61,7 +61,7 @@ export default function FilterReducer(state, action) {
       return {
         ...state,
         categorySelection: action.payload,
-        category: action.payload,
+        category: [action.payload],
       };
     default:
       return state;
