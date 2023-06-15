@@ -6,28 +6,25 @@ export function AuthReducer(state, action) {
         email: "adarshbalika@gmail.com",
         password: "adarshbalika",
       };
-    case "USER_EMAIL":
+    case "IS_LOGGED_IN_TRUE":
       return {
         ...state,
-        email: action?.payload,
+        isUserLoggedIn: action.payload,
       };
-    case "USER_PASSWORD":
+    case "IS_LOGGED_IN_FALSE":
       return {
         ...state,
-        password: action?.payload,
+        isUserLoggedIn: action.payload,
       };
-
-    case "USER_LOGIN":
+    case "SET_TOKEN":
       return {
         ...state,
-        email: action?.payload,
-        password: action?.payload,
+        token: action.payload,
       };
-    case "USER_DATA":
-      console.log(action.payload.encodedToken);
+    case "SET_USER":
       return {
         ...state,
-   
+        user: action.payload,
       };
     default:
       return state;

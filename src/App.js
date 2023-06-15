@@ -9,8 +9,12 @@ import { RequiresAuth } from "./Auth/RequiresAuth";
 import { Login } from "./pages/Login/Login";
 import { ProductPage } from "./pages/ProductDetailPage/ProductPage";
 import { AuthHandler } from "./Auth/AuthHandler";
+import { SignUp } from "./pages/SignUp/SignUp";
+import { useAuthContext } from "./contexts/AuthContext";
+import { UserDetails } from "./pages/UserDetails/UserDetails";
 
 function App() {
+  const {isUserLoggedIn} = useAuthContext()
   return (
     <div className="App">
       <Nav />
@@ -25,9 +29,15 @@ function App() {
             </RequiresAuth>
           }
         />
-        <Route path="/login" element={<Login />} />
+        {!isUserLoggedIn ? (
+          <Route path="/login" element={<Login />} />
+        ) : (
+          <Route
+            path="/account-details/userdetails"
+            element={<UserDetails />}
+          />
+        )}
         <Route path="/product/:productId" element={<ProductPage />} />
-
         <Route
           path="/cart"
           element={
@@ -36,6 +46,7 @@ function App() {
             </RequiresAuth>
           }
         />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       {/* <AuthHandler /> */}
     </div>

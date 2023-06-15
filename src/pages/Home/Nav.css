@@ -51,3 +51,7 @@
   display: inline-block;
   /* width: 40px; */
 }
+
+.user-name:hover{
+  cursor: pointer;
+}

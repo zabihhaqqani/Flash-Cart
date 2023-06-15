@@ -50,16 +50,15 @@ export function Filters() {
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <h3>Category</h3>
-          <label htmlFor="Laptop"></label>Laptop
+          <label htmlFor="Laptop">Laptop</label>
           <input
             type="checkbox"
             value="Laptop"
             id="Laptop"
-            // checked={state.checkbox1}
             checked={category.includes("Laptop")}
             onChange={e => handleCategoryChange(e, "Laptop")}
           />
-          <label htmlFor="Headphones"></label>Phone
+          <label htmlFor="Phone">Phone</label>
           <input
             type="checkbox"
             value="Phone"
@@ -67,13 +66,12 @@ export function Filters() {
             checked={category.includes("Phone")}
             onChange={e => handleCategoryChange(e, "Phone")}
           />
-          <label htmlFor="Headphones"></label>Headphones
+          <label htmlFor="Headphones">Headphones</label>
           <input
             type="checkbox"
             value="Headphones"
             id="Headphones"
             checked={category.includes("Headphones")}
-
             onChange={e => handleCategoryChange(e, "Headphones")}
           />
         </div>

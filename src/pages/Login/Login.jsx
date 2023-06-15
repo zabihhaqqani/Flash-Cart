@@ -1,8 +1,30 @@
+import { useNavigate } from "react-router-dom";
 import { AuthContext, useAuthContext } from "../../contexts/AuthContext";
+import { useState } from "react";
 
 export function Login() {
-  const { userEmail, userPassword, loginAsGuest, email, password,userLogin } =
-    useAuthContext(AuthContext);
+
+  const navigate = useNavigate()
+  const { loginUser } = useAuthContext()
+
+  const [userData,setUserData] = useState({
+    email:"",
+    password:"",
+  })
+
+  const guestUserData = {
+    email:"mdzabihhaqqani@gmail.com",
+    password:"haqqani"
+  }
+
+  const loginHandler = () => {
+    loginUser(userData)
+  }
+
+  const loginAsGuest =() => {
+    setUserData(guestUserData)
+    loginUser(guestUserData)
+  }
 
   return (
     <>
@@ -12,26 +34,33 @@ export function Login() {
         <label htmlFor="email">
           Email:
           <input
-            onChange={e => userEmail(e)}
             id="email"
-            value={email}
+            value={userData.email}
             type="email"
+            placeholder="Enter your Email"
+            onChange={e => setUserData(data=>({...data,email:e.target.value}))}
+            required
           />
         </label>
         <label htmlFor="password">
           Password:
           <input
-            onChange={e => userPassword(e)}
             id="password"
-            value={password}
+            value={userData.password}
             type="password"
+            placeholder="Enter Your Password"
+            onChange={e => setUserData(data=>({...data,password:e.target.value}))}
+            required
           />
         </label>
-        <button onClick={() => userLogin()}>
+        <button onClick={loginHandler}>
           Login
         </button>
         <button onClick={() => loginAsGuest()}>
           Login as Guest
+        </button>
+        <button onClick={()=>navigate("/signup")}>
+          SignUp
         </button>
       </div>
     </>
