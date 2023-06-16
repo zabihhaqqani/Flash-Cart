@@ -1,20 +1,23 @@
 // import "../Home/Category.css";
 import { useContext } from "react";
 import sale from "./sale.png";
-import { CategoryContext } from "../../contexts/CategoryContext";
+// import { CategoryContext } from "../../contexts/CategoryContext";
 import "../Categories/Category.css";
 import { useFilterContext } from "../../contexts/FilterContext";
 import { NavLink } from "react-router-dom";
+import { useProductContext } from "../../contexts/ProductsContext";
 
 
 
 export function Category() {
-  const { categoriesData, loading } = useContext(CategoryContext);
+  // const { categoriesData, loading } = useContext(CategoryContext);
+    const {categoriesData,loading} = useProductContext()
   const {dispatch} = useFilterContext();
   
   const categorySelector = (categoryName) => {
     dispatch({type:"CATEGORY_SELECTOR",payload:categoryName})
   }
+
 
   return (
     <>
@@ -24,7 +27,7 @@ export function Category() {
                
       <div  className="categories-container">
     
-       {categoriesData.categories?.map(category=>{
+       {categoriesData?.map(category=>{
         const {_id,categoryName,description,url} = category
         return (<div   className="category-card" key={_id}>
           <NavLink style={{textDecoration:"none",color:"black"}} onClick={()=>categorySelector(categoryName)} to="/products">

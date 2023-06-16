@@ -61,6 +61,7 @@ export const FilterContextProvider = ({ children }) => {
       const inputValue = e.target.value
       dispatch({type:"SEARCH_FILTER",payload:{inputValue,products}})
     }
+    
 // let maxRating = 5
 // let minRating = 0
   return (

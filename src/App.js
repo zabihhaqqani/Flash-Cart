@@ -12,12 +12,18 @@ import { AuthHandler } from "./Auth/AuthHandler";
 import { SignUp } from "./pages/SignUp/SignUp";
 import { useAuthContext } from "./contexts/AuthContext";
 import { UserDetails } from "./pages/UserDetails/UserDetails";
-
+import { Address } from "./pages/address/Address";
+import { EditAddress } from "./pages/address/EditAddress";
+import { Checkout } from "./pages/Checkout";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+  
 function App() {
   const {isUserLoggedIn} = useAuthContext()
   return (
     <div className="App">
       <Nav />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
@@ -46,9 +52,41 @@ function App() {
             </RequiresAuth>
           }
         />
+        <Route
+          path="/account-details/userdetails/address"
+          element={
+            <RequiresAuth>
+              <Address />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <RequiresAuth>
+              <Checkout />
+            </RequiresAuth>
+          }
+        />
         <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/account-details/userdetails/address/edit-address"
+          element={<EditAddress />}
+        />
       </Routes>
       {/* <AuthHandler /> */}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

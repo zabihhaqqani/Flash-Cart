@@ -13,11 +13,10 @@ export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const initialState = {
+    isUserLoggedIn: false,
     user: {},
     token: "",
-    isUserLoggedIn: false,
   };
-
   const navigate = useNavigate();
   const location = useLocation();
   const [state, dispatch] = useReducer(AuthReducer, initialState);
@@ -67,7 +66,8 @@ const userSignup = async (signupData) => {
     localStorage.removeItem("token")
      navigate("/");
   }
-  
+
+
   return (
     <AuthContext.Provider value={{...state, loginUser ,userSignup,userLogout}}>
       {children}

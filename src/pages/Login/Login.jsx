@@ -17,20 +17,27 @@ export function Login() {
     password:"haqqani"
   }
 
-  const loginHandler = () => {
-    loginUser(userData)
+  const loginHandler = (e) => {
+    e.preventDefault();
+    if (!userData.email.trim() || !userData.password.trim()) {
+      
+    } else {
+      loginUser(userData);
+    }
   }
 
-  const loginAsGuest =() => {
+  const loginAsGuest =(e) => {
+    e.preventDefault()
     setUserData(guestUserData)
     loginUser(guestUserData)
   }
+const [showPassword,setShowPassword] = useState(false)
 
   return (
     <>
       <div>
-        <h3>Sign In</h3>
-
+        <h3>Log In</h3>
+    <form >
         <label htmlFor="email">
           Email:
           <input
@@ -47,18 +54,20 @@ export function Login() {
           <input
             id="password"
             value={userData.password}
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             placeholder="Enter Your Password"
             onChange={e => setUserData(data=>({...data,password:e.target.value}))}
             required
           />
+          <span onClick={()=>setShowPassword(!showPassword)}>{showPassword?"hide":"show"}</span>
         </label>
         <button onClick={loginHandler}>
           Login
         </button>
-        <button onClick={() => loginAsGuest()}>
+        <button onClick={loginAsGuest}>
           Login as Guest
         </button>
+        </form>
         <button onClick={()=>navigate("/signup")}>
           SignUp
         </button>

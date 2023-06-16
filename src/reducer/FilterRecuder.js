@@ -42,15 +42,16 @@ export default function FilterReducer(state, action) {
       //         minPrice: state.filters.maxPrice,
       return {
         ...state,
-        sort: '',
+        sort: "",
         category: [],
-        range: "0",
+        range: 0,
 
         clearFilters: action.payload,
         categoryname: ["Laptop", "Phone", "Headphones"],
         // checkbox1: true,
         valueRating: 0,
         // maxRating: 5,
+        inputValue:''
       };
     case "SEARCH_FILTER":
       return {

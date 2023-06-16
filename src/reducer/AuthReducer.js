@@ -1,11 +1,11 @@
 export function AuthReducer(state, action) {
   switch (action.type) {
-    case "LOGIN_AS_GUEST":
-      return {
-        ...state,
-        email: "adarshbalika@gmail.com",
-        password: "adarshbalika",
-      };
+    // case "LOGIN_AS_GUEST":
+    //   return {
+    //     ...state,
+    //     email: "adarshbalika@gmail.com",
+    //     password: "adarshbalika",
+    //   };
     case "IS_LOGGED_IN_TRUE":
       return {
         ...state,
@@ -16,15 +16,15 @@ export function AuthReducer(state, action) {
         ...state,
         isUserLoggedIn: action.payload,
       };
+      case "SET_USER":
+        return {
+          ...state,
+          user: action.payload,
+        };
     case "SET_TOKEN":
       return {
         ...state,
         token: action.payload,
-      };
-    case "SET_USER":
-      return {
-        ...state,
-        user: action.payload,
       };
     default:
       return state;

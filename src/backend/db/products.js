@@ -22,7 +22,7 @@ export const products = [
     category: "Laptop",
     name: "Dell XPS 13",
     specification: "13.3-inch, Intel i5, 8GB RAM, 256GB SSD",
-    price: 9999,
+    price: 1000,
     deliveryInDays: 3,
     url: "https://www.example.com/laptops/dell-xps-13",
     rating: 4.5,

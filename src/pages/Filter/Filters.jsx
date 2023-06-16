@@ -10,7 +10,7 @@ export function Filters() {
     handleSortChange,
     minRating,
     maxRating,
-    valueRating,defaultRange,values,
+    valueRating,defaultRange,values,range,
     category,
     sort
 
@@ -32,7 +32,8 @@ export function Filters() {
             type="range"
             min="0"
             max="5"
-            defaultValue="0"
+            value={range}
+            // defaultValue="0"
              id="range"
             name="range"
             step="0.5"

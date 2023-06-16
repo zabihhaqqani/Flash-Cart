@@ -1,18 +1,26 @@
-import { useCartContext } from "../../contexts/CartContext";
+// import { useCartContext } from "../../contexts/CartContext";
 import { useProductContext } from "../../contexts/ProductsContext";
-import { useWishlistContext } from "../../contexts/WishlistContext";
+// import { useWishlistContext } from "../../contexts/WishlistContext";
 import {useNavigate} from "react-router-dom"
+import { addToCartHandler } from "../../utils/addToCart";
+import { IsItemInCart } from "../../utils/isItemInCart";
+import { removeFromWishlistHandler } from "../../utils/removeFromWishlist";
+import { isItemInWishlList } from "../../utils/isIteminWishlist";
+import { addToWishlistHandler } from "../../utils/addToWishlist";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 export function ProductPage() {
 
     const {singleProduct} = useProductContext()
-    const {wishListProducts,removeFromWishlist,addToWishlist} = useWishlistContext()
-    const {addToCart,cartItems} = useCartContext()
+    // const {wishListProducts,removeFromWishlist,addToWishlist,wishlistDispatch} = useWishlistContext()
+    // const {addToCart,cartItems,cartDispatch} = useCartContext()
     const navigate = useNavigate()
-
+    const {getSingleProduct,dispatch,cartData,wishListData} = useProductContext()
+    const {isUserLoggedIn} = useAuthContext()
+    // console.log(singleProduct)
     return <>{
           <div className="categories-container">
-            {singleProduct.length > 0 &&
+            {singleProduct?.length > 0 &&
               singleProduct?.map(product => {
                 const { _id, name, price, category } = product;
                 return (
@@ -22,18 +30,45 @@ export function ProductPage() {
                     key={_id}
                     >
                    
-                      {wishListProducts?.find(item=>item._id===_id)?
-                      <i style={{color:"red"}} onClick={()=>removeFromWishlist(product)} className="fa-solid fa-heart"></i>:
-                      <i style={{color:"blue"}}  onClick={()=>addToWishlist(product)} className="fa-regular fa-heart" >
-                      </i>  }
+                     {wishListData?.find(item => item._id === _id) ? (
+                      <i style={{color:"red"}} onClick={()=>removeFromWishlistHandler(dispatch,_id)} className="fa-solid fa-heart"></i>
+                    ) : (
+                      <i style={{color:"blue"}}   onClick={e => {
+                          if (isUserLoggedIn) {
+                            if (isItemInWishlList(wishListData, _id)) {
+                              navigate("/wishlist");
+                            } else {
+                              addToWishlistHandler(
+                                product,
+                                dispatch,
+                                e
+                              );
+                            }
+                          } else {
+                            navigate("/login");
+                          }
+                        }}className="fa-regular fa-heart" >
+                      </i>  
+                    )}
                     
                                          
                     <h3>{name}</h3>
                     <p>₹{price}</p>
                     <p>₹{category}</p>
                  
-                    <button onClick={(e)=>addToCart(product,e,_id)} value="Add to Cart" className="add-to-cart-btn">  
-                     {cartItems?.find(item=>item._id === _id)?"Go to Cart":"Add  to Cart"}
+                  <button 
+                    onClick={e => {
+                        if (isUserLoggedIn) {
+                          if (IsItemInCart(cartData, _id)) {
+                            navigate("/cart");
+                          } else {
+                            addToCartHandler(product, dispatch, e);
+                          }
+                        } else {
+                          navigate("/login");
+                        }
+                      }} value="Add to Cart" className="add-to-cart-btn">  
+                     {cartData?.find(item=>item._id === _id)?"Go to Cart":"Add  to Cart"}
                     </button>
                     
                   </div>

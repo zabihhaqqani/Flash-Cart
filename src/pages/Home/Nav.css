@@ -55,3 +55,12 @@
 .user-name:hover{
   cursor: pointer;
 }
+.wrapper {
+  position: relative;
+  width: min-content;
+}
+
+.clear {
+  position: absolute;
+  right: 0px;
+}
