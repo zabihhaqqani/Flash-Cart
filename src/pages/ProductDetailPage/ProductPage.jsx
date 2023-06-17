@@ -9,6 +9,8 @@ import { isItemInWishlList } from "../../utils/isIteminWishlist";
 import { addToWishlistHandler } from "../../utils/addToWishlist";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { toast } from 'react-toastify';
+import "../Products/Products.css";
+
 
 export function ProductPage() {
 
@@ -23,10 +25,10 @@ export function ProductPage() {
           <div className="categories-container">
             {singleProduct?.length > 0 &&
               singleProduct?.map(product => {
-                const { _id, name, price, category } = product;
+                const { _id, name, price, category,url } = product;
                 return (
                   <div
-                    style={{ maxHeight: "50vh" }}
+                    // style={{ maxHeight: "50vh" }}
                     className="category-card"
                     key={_id}
                     >
@@ -68,11 +70,12 @@ export function ProductPage() {
                       ></i>
                     )}
                     
-                                         
+                   <div className="inner-box-products">
+                    <p><img height="215px" width="210px" src={url} alt="" /></p>
                     <h3>{name}</h3>
                     <p>₹{price}</p>
                     <p>₹{category}</p>
-                 
+                 </div>            
                   <button
                       onClick={e => {
                         if (isUserLoggedIn) {

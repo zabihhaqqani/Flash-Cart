@@ -10,9 +10,13 @@
   line-height: 40px;
   padding: 1rem;
   background-color: white;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
+.nav-icons{
+  display: flex;
+  padding-left: 1rem;
 
+}
 .cart {
   color: var(--primarycolor);
 }
@@ -63,4 +67,8 @@
 .clear {
   position: absolute;
   right: 0px;
+}
+
+.explore{
+  padding-right: 2.5rem;
 }

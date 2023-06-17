@@ -22,17 +22,17 @@ export function Category() {
 
   return (
     <>
-      <div className="category-container">
+      <div className="category-container-main">
         {/* <img height="20%" width="20%" src={sale} alt="saleposter" /> */}
         {
         showLoader && <Loader />
       }
                
-      <div  className="categories-container">
+      <div  className="categories-container-main">
     
        {categoriesData?.map(category=>{
         const {_id,categoryName,description,url} = category
-        return (<div   className="category-card" key={_id}>
+        return (<div   className="category-card-container" key={_id}>
           <NavLink style={{textDecoration:"none",color:"black"}} onClick={()=>categorySelector(categoryName)} to="/products">
           <img style={{borderRadius:"5px"}} height='50%' width="100%" src={url} alt={categoryName} />
           <h3>{categoryName}</h3>

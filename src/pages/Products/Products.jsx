@@ -15,7 +15,8 @@ import { useAuthContext } from "../../contexts/AuthContext";
 import { useLocation } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { Loader } from "../../utils/Loader";
-  
+  import "../Products/Products.css";
+
   
 export function Products() {
   const { products, isLoading } = useProductContext();
@@ -97,13 +98,13 @@ export function Products() {
     }, 500)},[])
 
   return (
-    <>
-      <div className="category-container">
+    <div className="body-container">
         <Filters />
-        {isLoading && <h1>loading........</h1>}
+      <div className="category-container">
+        {/* {isLoading && <h1>loading........</h1>} */}
         {
-        showLoader && <Loader />
-      }
+          showLoader && <Loader />
+        }
         {
           <div className="categories-container">
             {sortedProducts.length > 0 &&
@@ -152,7 +153,7 @@ export function Products() {
                       ></i>
                     )}
                     <div className="inner-box-products" onClick={() => getSingleProduct(_id)}>
-                      <p><img height="100%" width="100%" src={url} alt="" /></p>
+                      <p><img height="215px" width="210px" src={url} alt="" /></p>
                       <h3>{name}</h3>
                       <p>₹{price}</p>
                       <p>₹{category}</p>
@@ -185,6 +186,6 @@ export function Products() {
           </div>
         }
       </div>
-    </>
+    </div>
   );
 }

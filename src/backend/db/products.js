@@ -185,7 +185,7 @@ export const products = [
     specification: "6.7-inch OLED, Snapdragon 865, 256GB",
     price: 899,
     deliveryInDays: 4,
-    url: "https://m.media-amazon.com/images/I/31qEs1m5JWL._AC_UF894,1000_QL80_.jpg",
+    url: "https://m.media-amazon.com/images/I/81saLvKN2XL._SX522_.jpg",
     rating: 4.75,
   },
   {

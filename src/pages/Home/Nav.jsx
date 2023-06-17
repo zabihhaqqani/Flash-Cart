@@ -37,7 +37,7 @@ export function Nav() {
          {/* <button class="clear">X</button> */}
          </div>
         <div className="nav-icons">
-          <NavLink style={getActive} to="/products">
+          <NavLink className="explore" style={getActive} to="/products">
             Explore
           </NavLink>
           {/* <button className="login-btn">Login</button> */}
@@ -45,9 +45,11 @@ export function Nav() {
             <i
               class="fa-solid fa-user fa-lg"
               onClick={() => navigate("/login")}
+              
             ></i>
           ) : (
-            <p className="user-name" onClick={()=>navigate("/account-details/userdetails")}>
+            
+            <p className="user-name"  onClick={()=>navigate("/account-details/userdetails")}>
               {user?.firstName}
             </p>
           )}

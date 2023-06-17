@@ -35,10 +35,10 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
               <h3>You Cart is Empty!</h3>
             ) : (
               cartData?.map(product => {
-                const { _id, name, price, category,qty } = product;
+                const { _id, name, price, category,qty ,url} = product;
                 return (
                   <div
-                    style={{ maxHeight: "50vh" }}
+                    // style={{ maxHeight: "50vh" }}
                     className="category-card"
                     key={_id}
                   >
@@ -54,13 +54,15 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                     }}className="fa-regular fa-heart" >
                       </i>  
                     )}
-                    <div onClick={() => getSingleProduct(_id)}>
+                    <div className="inner-box-products" onClick={() => getSingleProduct(_id)}>
+                       <p><img height="200px" width="210px" src={url} alt="" /></p>
                     <h3>{name}</h3>
                     <p>₹{price}</p>
                     <p>₹{category}</p>
                     <p>Quantity</p>
                     </div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
+                      <button>
                       <i
                         onClick={
                          ()=>
@@ -74,6 +76,7 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                         className="fa-solid fa-circle-plus"
                        
                       ></i>
+                      </button>
                       <p
                         style={{
                           width: "20px",
@@ -81,7 +84,7 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                           border: "1px solid",
                         }}
                       >
-                        {qty}
+                      <span className="cart-qty-number"> {qty}</span> 
                       </p>
                       <button
                         onClick={

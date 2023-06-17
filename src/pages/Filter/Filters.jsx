@@ -19,10 +19,11 @@ export function Filters() {
   return (
     <>
       <div className="filters-container">
-        <button onClick={e => clearFilters(e)}>Clear All Filters</button>
+        <h4 style={{display:"inline"}}>Filters</h4>
+        <button className="clear-all-filters-btn" onClick={e => clearFilters(e)}>Clear All </button>
         <div className="range-container">
           <label htmlFor="range">
-            <strong>Rating: </strong>
+            <h4>Rating: </h4>
           </label>
           <div className="rating-range">
             0<span>2.5</span>
@@ -49,35 +50,35 @@ export function Filters() {
           onChange={updateFilterValue}
         /> */}
         </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <h3>Category</h3>
-          <label htmlFor="Laptop">Laptop</label>
+        <div className="checkboxes-container">
+          <h4>Category</h4>
+          <label className="category-checkboxes" htmlFor="Laptop">
           <input
             type="checkbox"
             value="Laptop"
             id="Laptop"
             checked={category.includes("Laptop")}
             onChange={e => handleCategoryChange(e, "Laptop")}
-          />
-          <label htmlFor="Phone">Phone</label>
+          />Laptop</label>
+          <label htmlFor="Phone">
           <input
             type="checkbox"
             value="Phone"
             id="Phone"
             checked={category.includes("Phone")}
             onChange={e => handleCategoryChange(e, "Phone")}
-          />
-          <label htmlFor="Headphones">Headphones</label>
+          />Phone</label>
+          <label htmlFor="Headphones">
           <input
             type="checkbox"
             value="Headphones"
             id="Headphones"
             checked={category.includes("Headphones")}
             onChange={e => handleCategoryChange(e, "Headphones")}
-          />
+          />Headphones</label>
         </div>
-
-        <div>
+        <div className="sort-by-price-container">
+     <h4>Sort By Price</h4>
           <label htmlFor="low-to-high">
             <input
               type="radio"
