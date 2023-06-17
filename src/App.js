@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
 import { Nav } from "./pages/Home/Nav";
 import { Products } from "./pages/Products/Products";
@@ -17,6 +17,7 @@ import { EditAddress } from "./pages/address/EditAddress";
 import { Checkout } from "./pages/Checkout";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Error } from "./pages/Error/Error";
   
 function App() {
   const {isUserLoggedIn} = useAuthContext()
@@ -73,6 +74,8 @@ function App() {
           path="/account-details/userdetails/address/edit-address"
           element={<EditAddress />}
         />
+        <Route path="/page-not-found" element={<Error />} />
+        <Route path="*" element={<Navigate to={"/page-not-found"} />} />
       </Routes>
       {/* <AuthHandler /> */}
       <ToastContainer

@@ -8,6 +8,7 @@ import {
 } from "react";
 import { AuthReducer } from "../reducer/AuthReducer";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 export const AuthContext = createContext();
 
@@ -64,6 +65,7 @@ const userSignup = async (signupData) => {
     dispatch ({type:"SET_USER",payload:{}})
     dispatch  ({ type: "SET_TOKEN", payload: "" });
     localStorage.removeItem("token")
+    toast.success("Logout Successful!")
      navigate("/");
   }
 

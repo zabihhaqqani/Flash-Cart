@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFilterContext } from "../../contexts/FilterContext";
 import { useProductContext } from "../../contexts/ProductsContext";
 // import { useWishlistContext } from "../../contexts/WishlistContext";
@@ -14,6 +14,7 @@ import { removeFromWishlistHandler } from "../../utils/removeFromWishlist";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useLocation } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { Loader } from "../../utils/Loader";
   
   
 export function Products() {
@@ -87,11 +88,22 @@ export function Products() {
   // const { wishlistDispatch } = useWishlistContext();
   const location = useLocation();
   const {dispatch,cartData} = useProductContext()
+  const [showLoader,setShowLoader] = useState()
+ 
+
+    useEffect(()=>{ setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+    }, 500)},[])
+    
   return (
     <>
       <div className="category-container">
         <Filters />
         {isLoading && <h1>loading........</h1>}
+        {
+        showLoader && <Loader />
+      }
         {
           <div className="categories-container">
             {sortedProducts.length > 0 &&
@@ -107,8 +119,13 @@ export function Products() {
                       <i
                         style={{ color: "red" }}
                         onClick={() =>
-                          removeFromWishlistHandler(dispatch, _id)
-                        }
+                          {if(isUserLoggedIn){
+
+                            removeFromWishlistHandler(dispatch, _id)
+                               toast.success("Product removed from Wishlist!")
+                            
+                          }
+                        }}
                         className="fa-solid fa-heart"
                       ></i>
                     ) : (
@@ -124,9 +141,11 @@ export function Products() {
                                 dispatch,
                                 e
                               );
+                               toast.success("Product added to Wishlist!")
                             }
                           } else {
                             navigate("/login");
+                                  toast.warning("Login to access Wishlist!")
                           }
                         }}
                         className="fa-regular fa-heart"
@@ -148,6 +167,7 @@ export function Products() {
                             toast.success("Product added to Cart!")
                           }
                         } else {
+                         toast.warning("Login to access Cart!")
                           navigate("/login");
                         }
                       }}

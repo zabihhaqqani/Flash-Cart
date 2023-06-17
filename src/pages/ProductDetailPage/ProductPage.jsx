@@ -8,6 +8,7 @@ import { removeFromWishlistHandler } from "../../utils/removeFromWishlist";
 import { isItemInWishlList } from "../../utils/isIteminWishlist";
 import { addToWishlistHandler } from "../../utils/addToWishlist";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { toast } from 'react-toastify';
 
 export function ProductPage() {
 
@@ -30,10 +31,23 @@ export function ProductPage() {
                     key={_id}
                     >
                    
-                     {wishListData?.find(item => item._id === _id) ? (
-                      <i style={{color:"red"}} onClick={()=>removeFromWishlistHandler(dispatch,_id)} className="fa-solid fa-heart"></i>
+                      {wishListData?.find(item => item._id === _id) ? (
+                      <i
+                        style={{ color: "red" }}
+                        onClick={() =>
+                          {if(isUserLoggedIn){
+
+                            removeFromWishlistHandler(dispatch, _id)
+                               toast.success("Product removed from Wishlist!")
+                            
+                          }
+                        }}
+                        className="fa-solid fa-heart"
+                      ></i>
                     ) : (
-                      <i style={{color:"blue"}}   onClick={e => {
+                      <i
+                        style={{ color: "blue" }}
+                        onClick={e => {
                           if (isUserLoggedIn) {
                             if (isItemInWishlList(wishListData, _id)) {
                               navigate("/wishlist");
@@ -43,12 +57,15 @@ export function ProductPage() {
                                 dispatch,
                                 e
                               );
+                               toast.success("Product added to Wishlist!")
                             }
                           } else {
                             navigate("/login");
+                                  toast.warning("Login to access Wishlist!")
                           }
-                        }}className="fa-regular fa-heart" >
-                      </i>  
+                        }}
+                        className="fa-regular fa-heart"
+                      ></i>
                     )}
                     
                                          
@@ -56,19 +73,26 @@ export function ProductPage() {
                     <p>₹{price}</p>
                     <p>₹{category}</p>
                  
-                  <button 
-                    onClick={e => {
+                  <button
+                      onClick={e => {
                         if (isUserLoggedIn) {
                           if (IsItemInCart(cartData, _id)) {
                             navigate("/cart");
                           } else {
                             addToCartHandler(product, dispatch, e);
+                            toast.success("Product added to Cart!")
                           }
                         } else {
+                         toast.warning("Login to access Cart!")
                           navigate("/login");
                         }
-                      }} value="Add to Cart" className="add-to-cart-btn">  
-                     {cartData?.find(item=>item._id === _id)?"Go to Cart":"Add  to Cart"}
+                      }}
+                      value="Add to Cart"
+                      className="add-to-cart-btn"
+                    >
+                      {cartData?.find(item => item._id === _id)
+                        ? "Go to Cart"
+                        : "Add  to Cart"}
                     </button>
                     
                   </div>

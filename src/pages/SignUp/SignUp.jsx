@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 export function SignUp() {
   const navigate = useNavigate();
@@ -26,10 +27,11 @@ export function SignUp() {
       !userDetails?.confirmPassword.trim()
     ) {
     } else if (userDetails?.password !== userDetails?.confirmPassword) {
-      alert("password not matching");
+      toast.warning("Passwords Do not Match!")
     } else {
     
       userSignup(userDetails);
+      toast.success("Sign Up Successful!")
     }
   };
   return (

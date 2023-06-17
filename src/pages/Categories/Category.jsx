@@ -1,29 +1,32 @@
 // import "../Home/Category.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import sale from "./sale.png";
 // import { CategoryContext } from "../../contexts/CategoryContext";
 import "../Categories/Category.css";
 import { useFilterContext } from "../../contexts/FilterContext";
 import { NavLink } from "react-router-dom";
 import { useProductContext } from "../../contexts/ProductsContext";
+import { Loader } from "../../utils/Loader";
 
 
 
 export function Category() {
   // const { categoriesData, loading } = useContext(CategoryContext);
-    const {categoriesData,loading} = useProductContext()
+    
+    const {categoriesData,loading,showLoader} = useProductContext()
   const {dispatch} = useFilterContext();
   
   const categorySelector = (categoryName) => {
     dispatch({type:"CATEGORY_SELECTOR",payload:categoryName})
   }
 
-
   return (
     <>
       <div className="category-container">
         {/* <img height="20%" width="20%" src={sale} alt="saleposter" /> */}
-        {loading && <h1>loading........</h1>}
+        {
+        showLoader && <Loader />
+      }
                
       <div  className="categories-container">
     

@@ -45,6 +45,7 @@ export function ProductsProvider({ children }) {
     addressData:guestUserAddress
 };
 
+const [showLoader, setShowLoader] = useState(false);
 
   const encodedToken = localStorage.getItem("token");
   const {isUserLoggedIn} = useAuthContext()
@@ -130,13 +131,17 @@ const navigate = useNavigate()
     isUserLoggedIn&&setProducts()
     !isUserLoggedIn&& clearItems();
     getCategoriesData()
+     setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+    }, 5 * 100)
   }, [dispatch,isUserLoggedIn]);
 
 
   const discount = state?.cartData?.reduce((acc,curr)=>acc * curr.qty,200)
 
   return (
-    <ProductsContext.Provider value={{...state,showSingleProduct,dispatch,getSingleProduct,guestUserAddress,discount}}>
+    <ProductsContext.Provider value={{...state,showSingleProduct,dispatch,getSingleProduct,guestUserAddress,discount,showLoader,setShowLoader}}>
       {children}
     </ProductsContext.Provider>
   );

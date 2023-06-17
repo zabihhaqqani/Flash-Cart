@@ -62,7 +62,15 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                     </div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                       <i
-                        onClick={() => setCartQuantity(dispatch,_id,"increment")}
+                        onClick={
+                         ()=>
+                         {if(isUserLoggedIn){
+
+                           setCartQuantity(dispatch,_id,"increment")
+                               toast.success("Product Quantity Increased!")
+
+                         }
+                          }}
                         className="fa-solid fa-circle-plus"
                        
                       ></i>
@@ -77,8 +85,14 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                       </p>
                       <button
                         onClick={
-                         ()=> setCartQuantity(dispatch,_id,"decrement")
-                          }
+                         ()=>
+                         {if(isUserLoggedIn){
+
+                           setCartQuantity(dispatch,_id,"decrement")
+                               toast.success("Product Quantity Decreased!")
+
+                         }
+                          }}
                         className="fa-solid fa-circle-minus"
                         disabled={qty>1?false:true}
                         // onClick={e => {
@@ -103,6 +117,8 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                             removeFromCartHandler(dispatch, _id);
                             toast.success("Product removed from Cart!")
                           } else {
+                            toast.warning("Login to access Cart!")
+
                             navigate("/cart");
                           }
                         } else {

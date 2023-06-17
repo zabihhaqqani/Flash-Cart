@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { AuthContext, useAuthContext } from "../../contexts/AuthContext";
 import { useState } from "react";
+import { toast } from 'react-toastify';
 
 export function Login() {
 
@@ -20,9 +21,12 @@ export function Login() {
   const loginHandler = (e) => {
     e.preventDefault();
     if (!userData.email.trim() || !userData.password.trim()) {
+     toast.warning("Enter valid Credentials!")
       
     } else {
+      // toast.success("Log In Successful!")
       loginUser(userData);
+
     }
   }
 
@@ -30,6 +34,7 @@ export function Login() {
     e.preventDefault()
     setUserData(guestUserData)
     loginUser(guestUserData)
+    toast.success("Log In Successful!")
   }
 const [showPassword,setShowPassword] = useState(false)
 
@@ -37,6 +42,7 @@ const [showPassword,setShowPassword] = useState(false)
     <>
       <div>
         <h3>Log In</h3>
+        
     <form >
         <label htmlFor="email">
           Email:
