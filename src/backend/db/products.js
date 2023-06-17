@@ -14,7 +14,7 @@ export const products = [
     specification: "15.6-inch, Intel i7, 16GB RAM, 512GB SSD",
     price: 12999,
     deliveryInDays: 5,
-    url: "https://www.example.com/laptops/hp-spectre-x360",
+    url: "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08347245.png",
     rating: 4,
   },
   {
@@ -24,7 +24,7 @@ export const products = [
     specification: "13.3-inch, Intel i5, 8GB RAM, 256GB SSD",
     price: 1000,
     deliveryInDays: 3,
-    url: "https://www.example.com/laptops/dell-xps-13",
+    url: "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9315/media-gallery/notebook-xps-9315-nt-blue-gallery-3.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=575&qlt=100,1&resMode=sharp2&size=575,402&chrss=full",
     rating: 4.5,
   },
   {
@@ -34,7 +34,7 @@ export const products = [
     specification: "16-inch, Apple M1, 16GB RAM, 1TB SSD",
     price: 23999,
     deliveryInDays: 7,
-    url: "https://www.example.com/laptops/macbook-pro",
+    url: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664497359481",
     rating: 5,
   },
   {
@@ -44,7 +44,7 @@ export const products = [
     specification: "14-inch, Intel i7, 16GB RAM, 512GB SSD",
     price: 14999,
     deliveryInDays: 4,
-    url: "https://www.example.com/laptops/lenovo-thinkpad-x1-carbon",
+    url: "https://www.stepstrade.com/wp-content/uploads/2021/03/lenovo-laptop-thinkpad-x1-carbon-gen8-subseries-hero.png",
     rating: 4.5,
   },
   {
@@ -54,7 +54,7 @@ export const products = [
     specification: "14-inch, AMD Ryzen 9, 32GB RAM, 1TB SSD",
     price: 17999,
     deliveryInDays: 6,
-    url: "https://www.example.com/laptops/asus-rog-zephyrus-g14",
+    url: "https://m.media-amazon.com/images/I/81m-xYfxznL.jpg",
     rating: 5,
   },
   {
@@ -64,7 +64,7 @@ export const products = [
     specification: "14-inch, Intel i5, 8GB RAM, 256GB SSD",
     price: 6999,
     deliveryInDays: 2,
-    url: "https://www.example.com/laptops/acer-swift-3",
+    url: "https://m.media-amazon.com/images/I/81nN5u1MEuL.jpg",
     rating: 3.5,
   },
   {
@@ -74,7 +74,7 @@ export const products = [
     specification: "15.6-inch, AMD Ryzen 7, 16GB RAM, 1TB SSD",
     price: 5000,
     deliveryInDays: 4,
-    url: "https://www.example.com/laptops/dell-inspiron-15",
+    url: "https://images-cdn.ubuy.co.in/633aae8db52ac20d0b37956e-dell-inspiron-15-3000-laptop-2021.jpg",
     rating: 2.5,
   },
   {
@@ -84,7 +84,7 @@ export const products = [
     specification: "13.5-inch, Intel i7, 16GB RAM, 512GB SSD",
     price: 11999,
     deliveryInDays: 3,
-    url: "https://www.example.com/laptops/microsoft-surface-laptop-4",
+    url: "https://i.gadgets360cdn.com/products/large/Surface-Laptop-4-15-DB-954x800-1618386346.jpg",
     rating: 4.5,
   },
   {
@@ -94,7 +94,7 @@ export const products = [
     specification: "15.6-inch, Intel i9, 32GB RAM, 1TB SSD",
     price: 18999,
     deliveryInDays: 6,
-    url: "https://www.example.com/laptops/razer-blade-15",
+    url: "https://m.media-amazon.com/images/I/71K7P66CGnL._AC_UF1000,1000_QL80_.jpg",
     rating: 4.75,
   },
   {
@@ -104,7 +104,7 @@ export const products = [
     specification: "17-inch, Intel i7, 16GB RAM, 1TB SSD",
     price: 15999,
     deliveryInDays: 5,
-    url: "https://www.example.com/laptops/lg-gram-17",
+    url: "https://images-cdn.ubuy.co.in/633ac84e72530c0030291006-lg-gram-17z90p-laptop-17-quot-ips.jpg",
     rating: 3.75,
   },
   // Phones
@@ -115,7 +115,7 @@ export const products = [
     specification: "6.1-inch Super Retina XDR, Apple A15 Bionic, 128GB",
     price: 1099,
     deliveryInDays: 3,
-    url: "https://www.example.com/phones/iphone-13-pro",
+    url: "https://m.media-amazon.com/images/I/619m8rLBQSL.jpg",
     rating: 5,
   },
   {
@@ -125,7 +125,7 @@ export const products = [
     specification: "6.2-inch Dynamic AMOLED, Snapdragon 888, 256GB",
     price: 899,
     deliveryInDays: 4,
-    url: "https://www.example.com/phones/samsung-galaxy-s21",
+    url: "https://m.media-amazon.com/images/I/614n6dbzqtL._AC_UF894,1000_QL80_.jpg",
     rating: 5,
   },
   {
@@ -135,7 +135,7 @@ export const products = [
     specification: "6.4-inch OLED, Google Tensor, 128GB",
     price: 799,
     deliveryInDays: 5,
-    url: "https://www.example.com/phones/google-pixel-6",
+    url: "https://m.media-amazon.com/images/I/61ruKkvVIxL.jpg",
     rating: 3.75,
   },
   {
@@ -145,7 +145,7 @@ export const products = [
     specification: "6.7-inch Fluid AMOLED, Snapdragon 888, 256GB",
     price: 999,
     deliveryInDays: 3,
-    url: "https://www.example.com/phones/oneplus-9-pro",
+    url: "https://m.media-amazon.com/images/I/614cCf6bzyL.jpg",
     rating: 3.75,
   },
   {
@@ -155,7 +155,7 @@ export const products = [
     specification: "6.81-inch AMOLED, Snapdragon 888, 128GB",
     price: 799,
     deliveryInDays: 4,
-    url: "https://www.example.com/phones/xiaomi-mi-11",
+    url: "https://m.media-amazon.com/images/I/511KWcTQoAL._AC_UF894,1000_QL80_.jpg",
     rating: 3,
   },
   {
@@ -165,7 +165,7 @@ export const products = [
     specification: "6.5-inch OLED, Snapdragon 888, 256GB",
     price: 1299,
     deliveryInDays: 5,
-    url: "https://www.example.com/phones/sony-xperia-1-iii",
+    url: "https://m.media-amazon.com/images/I/61SPQ9SnfpL.jpg",
     rating: 3.75,
   },
   {
@@ -175,7 +175,7 @@ export const products = [
     specification: "6.8-inch OLED, Snapdragon 765, 128GB",
     price: 599,
     deliveryInDays: 3,
-    url: "https://www.example.com/phones/lg-velvet",
+    url: "https://m.media-amazon.com/images/I/71epYJfrPnL._SL1500_.jpg",
     rating: 3.75,
   },
   {
@@ -185,7 +185,7 @@ export const products = [
     specification: "6.7-inch OLED, Snapdragon 865, 256GB",
     price: 899,
     deliveryInDays: 4,
-    url: "https://www.example.com/phones/motorola-edge-plus",
+    url: "https://m.media-amazon.com/images/I/31qEs1m5JWL._AC_UF894,1000_QL80_.jpg",
     rating: 4.75,
   },
   {
@@ -195,7 +195,7 @@ export const products = [
     specification: "6.81-inch IPS LCD, Snapdragon 765G, 128GB",
     price: 499,
     deliveryInDays: 5,
-    url: "https://www.example.com/phones/nokia-8-3",
+    url: "https://m.media-amazon.com/images/I/71D6aannQlL.jpg",
     rating: 3.5,
   },
   {
@@ -205,7 +205,7 @@ export const products = [
     specification: "6.43-inch Super AMOLED, Snapdragon 888, 128GB",
     price: 499,
     deliveryInDays: 3,
-    url: "https://www.example.com/phones/realme-gt",
+    url: "https://m.media-amazon.com/images/I/41wvVFEYCiL._SX300_SY300_QL70_FMwebp_.jpg",
     rating: 4,
   },
   // Headphones
@@ -216,7 +216,7 @@ export const products = [
     specification: "Wireless Over-Ear Headphones",
     price: 349,
     deliveryInDays: 2,
-    url: "https://www.example.com/headphones/sony-wh-1000xm4",
+    url: "https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_UF1000,1000_QL80_.jpg",
     rating: 5,
   },
   {
@@ -226,7 +226,7 @@ export const products = [
     specification: "Wireless Over-Ear Headphones",
     price: 299,
     deliveryInDays: 3,
-    url: "https://www.example.com/headphones/bose-quietcomfort-35-ii",
+    url: "https://m.media-amazon.com/images/I/71Aclgd057L._AC_UF1000,1000_QL80_.jpg",
     rating: 4.5,
   },
   {
@@ -236,7 +236,7 @@ export const products = [
     specification: "Open-Back Over-Ear Headphones",
     price: 499,
     deliveryInDays: 4,
-    url: "https://www.example.com/headphones/sennheiser-hd-660-s",
+    url: "https://m.media-amazon.com/images/I/71kC1BXo9PL._AC_UF1000,1000_QL80_.jpg",
     rating: 5,
   },
   {
@@ -246,7 +246,7 @@ export const products = [
     specification: "Wireless Earbuds",
     price: 229,
     deliveryInDays: 2,
-    url: "https://www.example.com/headphones/jabra-elite-85t",
+    url: "https://m.media-amazon.com/images/I/71-3C3aYveL.jpg",
     rating: 4.5,
   },
   {
@@ -256,7 +256,7 @@ export const products = [
     specification: "Wireless Earbuds",
     price: 249,
     deliveryInDays: 3,
-    url: "https://www.example.com/headphones/apple-airpods-pro",
+    url: "https://m.media-amazon.com/images/I/71tbMyhmxcL._AC_UF1000,1000_QL80_.jpg",
     rating: 4,
   },
   {
@@ -266,7 +266,7 @@ export const products = [
     specification: "Wireless On-Ear Headphones",
     price: 199,
     deliveryInDays: 4,
-    url: "https://www.example.com/headphones/beats-solo-pro",
+    url: "https://m.media-amazon.com/images/I/61BOKa62IqL._AC_UF1000,1000_QL80_.jpg",
     rating: 3.5,
   },
   {
@@ -276,7 +276,7 @@ export const products = [
     specification: "True Wireless Earbuds",
     price: 179,
     deliveryInDays: 2,
-    url: "https://www.example.com/headphones/bose-soundsport-free",
+    url: "https://m.media-amazon.com/images/I/71N4RsWobbS.jpg",
     rating: 4.5,
   },
   {
@@ -286,7 +286,7 @@ export const products = [
     specification: "Wireless Gaming Headset",
     price: 149,
     deliveryInDays: 3,
-    url: "https://www.example.com/headphones/jbl-quantum-800",
+    url: "https://m.media-amazon.com/images/I/712zz31jpaL._AC_UF1000,1000_QL80_.jpg",
     rating: 3,
   },
   {
@@ -296,7 +296,7 @@ export const products = [
     specification: "Wireless Gaming Headset",
     price: 149,
     deliveryInDays: 4,
-    url: "https://www.example.com/headphones/steelseries-arctis-7",
+    url: "https://m.media-amazon.com/images/I/81pCpKFjBZL._AC_UF1000,1000_QL80_.jpg",
     rating: 3,
   },
   {
@@ -304,9 +304,9 @@ export const products = [
     category: "Headphones",
     name: "Anker Soundcore Liberty Air 2 Pro",
     specification: "Wireless Earbuds",
-  price: 99.99,
+    price: 99.99,
     deliveryInDays: 2,
-    url: "https://www.example.com/headphones/anker-soundcore-liberty-air-2-pro",
+    url: "https://m.media-amazon.com/images/I/61a3VAbtpQL._AC_UF1000,1000_QL80_.jpg",
     rating: 2.5,
   },
   // ... (additional laptops, phones, and headphones)

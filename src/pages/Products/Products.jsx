@@ -95,7 +95,7 @@ export function Products() {
     setTimeout(() => {
       setShowLoader(false);
     }, 500)},[])
-    
+
   return (
     <>
       <div className="category-container">
@@ -108,10 +108,10 @@ export function Products() {
           <div className="categories-container">
             {sortedProducts.length > 0 &&
               sortedProducts?.map(product => {
-                const { _id, name, price, category } = product;
+                const { _id, name, price, category,url } = product;
                 return (
                   <div
-                    style={{ maxHeight: "50vh" }}
+                    // style={{ maxHeight: "50vh" }}
                     className="category-card"
                     key={_id}
                   >
@@ -151,7 +151,8 @@ export function Products() {
                         className="fa-regular fa-heart"
                       ></i>
                     )}
-                    <div onClick={() => getSingleProduct(_id)}>
+                    <div className="inner-box-products" onClick={() => getSingleProduct(_id)}>
+                      <p><img height="100%" width="100%" src={url} alt="" /></p>
                       <h3>{name}</h3>
                       <p>₹{price}</p>
                       <p>₹{category}</p>
