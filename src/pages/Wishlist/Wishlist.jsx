@@ -19,15 +19,15 @@ export function Wishlist() {
     const navigate = useNavigate()
     return (<>
     <div>
-              {wishListData?.length <= 0 ?'':<h3>My WishList ({wishListData?.length})</h3>}
+              {wishListData?.length <= 0 ?'':<h3 style={{margin:"1rem"}}>My WishList ({wishListData?.length})</h3>}
           {
           <div className="categories-container">
-            {wishListData?.length <= 0 ?<h3>You don't have any product in your wishlist</h3>:
+            {wishListData?.length <= 0 ?<h3 style={{margin:"1rem"}}>You don't have any product in your wishlist</h3>:
               wishListData?.map(product => {
-                const { _id, name, price, category } = product;
+                const { _id, name, price, category,url,rating } = product;
                 return (
                   <div
-                    style={{ maxHeight: "50vh" }}
+                    // style={{ maxHeight: "50vh" }}
                     className="category-card"
                     key={_id}
                     >
@@ -39,10 +39,12 @@ export function Wishlist() {
                             
                           }
                         }} className="fa-solid fa-heart"></i>  
-                    <div onClick={() => getSingleProduct(_id)}>                  
+                    <div className="inner-box-products" onClick={() => getSingleProduct(_id)}> 
+                     <p><img height="180px" width="210px" src={url} alt="" /></p>                 
                     <h3>{name}</h3>
                     <p>₹{price}</p>
-                    <p>₹{category}</p>
+                    <p>{category}</p>
+                    <p>Rating: {rating}<i style={{color:"orange"}} class="fa-solid fa-star"></i></p>
                     </div>
 
                <button onClick={(e)=>{if(IsItemInCart(cartData,_id)){
@@ -53,7 +55,11 @@ export function Wishlist() {
                                toast.success("Product added to Cart!")
 
                     }
-                    }} value="Add to Cart" className="add-to-cart-btn">  
+                    }} value="Add to Cart" className="add-to-cart-btn"
+                     style={{backgroundColor:cartData?.find(item => item._id === _id)
+                        ? "#0096FF"
+                        : "Add  to Cart"}}
+                    >  
                      {cartData?.find(item=>item._id === _id)?"Go to Cart":"Add  to Cart"}
                     </button>
                 

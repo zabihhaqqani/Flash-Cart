@@ -1,0 +1,14 @@
+.checkout-card-container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+}
+.checkout-card-container-p {
+   display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0rem;
+}

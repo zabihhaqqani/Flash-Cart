@@ -17,9 +17,9 @@ export function EditAddress({editId}) {
     const addressHandler = (e) => {
         e.preventDefault(e)
     }
-    return <div>
+    return <div className="login-form-container-address" >
+        <form className="login-form-address"  onSubmit={(e)=>addressHandler(e)}>
         <h3>Edit Address</h3>
-        <form onSubmit={(e)=>addressHandler(e)}>
             <input type="text" placeholder="Enter Name"  required name="userName" value={editAddress.userName} onChange={(e)=>setEditAddress((editAddress)=>({
                 ...editAddress,
                 [e.target.name] : e.target.value,
@@ -44,8 +44,8 @@ export function EditAddress({editId}) {
                 ...editAddress,
                 [e.target.name]: e.target.value
             }))}/>
-            <button type="submit" onClick={()=>dispatch({type:"EDITED_ADDRESS",payload:[editAddress]})}>Edits</button>
-            <button type="submit" onClick={()=>dispatch({type:"CANCEL_ADDRESS" ,payload:editId})}>Cancel</button>
+            <button style={{backgroundColor:"green"}} className="add-to-cart-btn" type="submit" onClick={()=>dispatch({type:"EDITED_ADDRESS",payload:[editAddress]})}>Edit</button>
+            <button className="add-to-cart-btn" type="submit" onClick={()=>dispatch({type:"CANCEL_ADDRESS" ,payload:editId})}>Cancel</button>
         </form>
     </div>
 }

@@ -17,18 +17,18 @@ export function AddressForm ({setAddAddress}) {
     const addressHandler = (e) => {
         e.preventDefault()
         dispatch({
-            type:"ADD_NEW_ADDRESSz",
+            type:"ADD_NEW_ADDRESS",
             payload: address
         })
         setAddAddress(false)
     }
 
 
-    return <div>
-        <h3>Add New Address</h3>
-        <form onSubmit={addressHandler
+    return <div className="login-form-container-address" >
+        <form className="login-form-address" onSubmit={addressHandler
         }>
-            <input  placeholder="Enter Name"
+          <h3>Enter Address Details: </h3>
+            <input style={{margin:"1rem 0rem"}} placeholder="Enter Name"
             type="text"
             required
             name="userName" 
@@ -40,7 +40,7 @@ export function AddressForm ({setAddAddress}) {
               }))
             }
              />
-              <input
+              <input style={{margin:"1rem 0rem"}} 
             placeholder="Enter House No., Road, Colony"
             type="text"
             required
@@ -53,7 +53,7 @@ export function AddressForm ({setAddAddress}) {
               }))
             }
           />
-          <input
+          <input style={{margin:"1rem 0rem"}} 
             placeholder="Enter City"
             type="text"
             required
@@ -66,7 +66,7 @@ export function AddressForm ({setAddAddress}) {
               }))
             }
           />
-          <input
+          <input style={{margin:"1rem 0rem"}} 
             placeholder="Enter State"
             type="text"
             required
@@ -79,7 +79,7 @@ export function AddressForm ({setAddAddress}) {
               }))
             }
           />
-          <input
+          <input style={{margin:"1rem 0rem"}} 
             placeholder="Enter Country"
             type="text"
             required
@@ -92,7 +92,7 @@ export function AddressForm ({setAddAddress}) {
               }))
             }
           />
-          <input
+          <input style={{margin:"1rem 0rem"}} 
             placeholder="Enter Pincode"
             type="number"
             required
@@ -105,7 +105,7 @@ export function AddressForm ({setAddAddress}) {
               }))
             }
           />
-          <input
+          <input style={{margin:"1rem 0rem"}} 
             placeholder="Enter Mobile Number"
             type="number"
             required
@@ -119,10 +119,11 @@ export function AddressForm ({setAddAddress}) {
             }
           />
           <div>
-            <button type="submit" >
+            <button style={{backgroundColor:"green"}} className="add-to-cart-btn" type="submit" >
                 Add
             </button>
-            <button onClick={()=>setAddress(false)}>
+            <button style={{backgroundColor:"red"}}  className="add-to-cart-btn" 
+             onClick={()=>setAddAddress(false)}>
                 Cancel
             </button>
           </div>

@@ -30,11 +30,14 @@
 .clear-all-filters-btn{
     display: inline;  
     border: none;
-    text-decoration: underline;
-    background-color: #F5F5F5;
-    color: blueviolet;
+    /* text-decoration: underline; */
+  background-color: rgb(243, 243, 243);
+    color: red;
     font-weight: bold;
     padding-left: 1rem;
+}
+.clear-all-filters-btn:hover{
+    cursor: pointer;
 }
 .sort-by-price-container{
     display: flex;

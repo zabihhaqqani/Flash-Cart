@@ -97,6 +97,8 @@ export function Products() {
       setShowLoader(false);
     }, 500)},[])
 
+    // const 
+
   return (
     <div className="body-container">
         <Filters />
@@ -109,7 +111,7 @@ export function Products() {
           <div className="categories-container">
             {sortedProducts.length > 0 &&
               sortedProducts?.map(product => {
-                const { _id, name, price, category,url } = product;
+                const { _id, name, price, category,url,rating } = product;
                 return (
                   <div
                     // style={{ maxHeight: "50vh" }}
@@ -153,10 +155,11 @@ export function Products() {
                       ></i>
                     )}
                     <div className="inner-box-products" onClick={() => getSingleProduct(_id)}>
-                      <p><img height="215px" width="210px" src={url} alt="" /></p>
+                      <p><img height="180px" width="210px" src={url} alt="" /></p>
                       <h3>{name}</h3>
-                      <p>₹{price}</p>
-                      <p>₹{category}</p>
+                      <p>MRP: <strong> ₹{price}</strong></p>
+                      <p>{category}</p>
+                      <p>Rating: {rating}<i style={{color:"orange"}} class="fa-solid fa-star"></i></p>
                     </div>
 
                     <button
@@ -166,6 +169,7 @@ export function Products() {
                             navigate("/cart");
                           } else {
                             addToCartHandler(product, dispatch, e);
+                            
                             toast.success("Product added to Cart!")
                           }
                         } else {
@@ -175,6 +179,9 @@ export function Products() {
                       }}
                       value="Add to Cart"
                       className="add-to-cart-btn"
+                      style={{backgroundColor:cartData?.find(item => item._id === _id)
+                        ? "#0096FF"
+                        : "Add  to Cart"}}
                     >
                       {cartData?.find(item => item._id === _id)
                         ? "Go to Cart"

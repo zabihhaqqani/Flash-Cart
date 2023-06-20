@@ -14,10 +14,11 @@ import { useAuthContext } from "./contexts/AuthContext";
 import { UserDetails } from "./pages/UserDetails/UserDetails";
 import { Address } from "./pages/address/Address";
 import { EditAddress } from "./pages/address/EditAddress";
-import { Checkout } from "./pages/Checkout";
+import { Checkout } from "./pages/checkout/Checkout";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Error } from "./pages/Error/Error";
+import { Footer } from "./pages/Footer/footer";
   
 function App() {
   const {isUserLoggedIn} = useAuthContext()
@@ -90,6 +91,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
+      {/* <Footer/> */}
     </div>
   );
 }

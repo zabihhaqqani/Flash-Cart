@@ -20,7 +20,7 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  background-color: whitesmoke;
+  background-color: rgb(243, 243, 243);
 }
 
 .App-logo {
@@ -69,4 +69,5 @@ body{
   color: #d9d9d9;
   font-size: 1.2rem;
   margin: 1rem;
+  
 }

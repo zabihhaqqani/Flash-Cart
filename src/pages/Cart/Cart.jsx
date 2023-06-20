@@ -27,15 +27,15 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
   const {isUserLoggedIn} = useAuthContext()
   return (
     <>
-      <div>
-        {cartData?.length <= 0 ? "" : <h3>My Cart ({cartData?.length})</h3>}
+      <div className="cart-checkout-container">
+        {cartData?.length <= 0 ? "" : <h3 style={{margin:"1rem"}}>My Cart ({cartData?.length})</h3>}
         {
           <div className="categories-container">
             {cartData?.length <= 0 ? (
-              <h3>You Cart is Empty!</h3>
+              <h3 style={{margin:"1rem"}}>You Cart is Empty!</h3>
             ) : (
               cartData?.map(product => {
-                const { _id, name, price, category,qty ,url} = product;
+                const { _id, name, price, category,qty ,url,rating} = product;
                 return (
                   <div
                     // style={{ maxHeight: "50vh" }}
@@ -60,22 +60,21 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                     <p>₹{price}</p>
                     <p>₹{category}</p>
                     <p>Quantity</p>
+                    <p>Rating: {rating}<i style={{color:"orange"}} class="fa-solid fa-star"></i></p>
                     </div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
-                      <button>
-                      <i
-                        onClick={
+                      <button
+                       onClick={
                          ()=>
                          {if(isUserLoggedIn){
 
-                           setCartQuantity(dispatch,_id,"increment")
-                               toast.success("Product Quantity Increased!")
+                           setCartQuantity(dispatch,_id,"decrement")
+                               toast.success("Product Quantity Decreased!")
 
                          }
                           }}
-                        className="fa-solid fa-circle-plus"
-                       
-                      ></i>
+                        className="fa-solid fa-circle-minus"  disabled={qty>1?false:true}>
+                      
                       </button>
                       <p
                         style={{
@@ -91,24 +90,14 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                          ()=>
                          {if(isUserLoggedIn){
 
-                           setCartQuantity(dispatch,_id,"decrement")
-                               toast.success("Product Quantity Decreased!")
+                           setCartQuantity(dispatch,_id,"increment")
+                               toast.success("Product Quantity Increment!")
 
                          }
                           }}
-                        className="fa-solid fa-circle-minus"
-                        disabled={qty>1?false:true}
-                        // onClick={e => {
-                        //   if (isUserLoggedIn) {
-                        //     if (isItemInWishlList(wishListData, _id)) {
-                        //       navigate("/wishlist");
-                        //     } else {
-                        //       addToWishlistHandler(
-                        //         product,
-                        //         dispatch,
-                        //         e
-                        //       );
-                        //     }
+                        className="fa-solid fa-circle-plus"
+                       
+                       
                       ></button>
                     </div>
 
@@ -140,28 +129,43 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
             {cartData?.length <= 0 ? (
               ""
             ) : (
-              <div style={{ textAlign: "left" }} className="category-card">
-                <h3>Cart Price Details: </h3>
-                <p>Items:</p>
+              <div style={{ textAlign: "left" }} className="checkout-card">
+                <hr />
+                <h3 style={{padding:"0.2rem"}}>Price Details: </h3>
+                <hr />
+                {/* <p>Items:</p> */}
                 <div>
                   {cartData?.map(product => (
-                    <div key={product._id}>
-                    <p>
-                      {product.name} -- {product.price*product.qty}
+                    <div className="inner-card-cart" key={product._id}>
+                    <p   >
+                      {product.name}:
                     </p>
+                    <p> ₹{product.price*product.qty}</p>
                     
                     </div>
                   ))}
                 </div>
-              
-                 <p>
-                  Discount: -{cartData?.reduce((acc,curr)=>acc * curr.qty,200)}
+              <div className="inner-card-cart" >
+                 <p >
+                  Discount:  
                 </p>
-                <p>
+                <p >
+                    ₹{cartData?.reduce((acc,curr)=>acc * curr.qty,200)}
+                </p>
+                </div>
+                <hr  />
+                <div className="inner-card-cart">
+                <p style={{padding:"0.2rem"}}>
                   Total Amount:{" "}
-                  {cartData?.reduce((total, curr) => total + curr.price*curr.qty-discount, 0)}
+                  
                 </p>
-                <button onClick={()=>navigate("/checkout")}>Checkout</button>
+                <p>₹{cartData?.reduce((total, curr) => total + curr.price*curr.qty-discount, 0)}</p>
+                </div>
+                <hr />
+
+
+                <button  className="checkout-btn" onClick={()=>navigate("/checkout")}>Checkout</button>
+
               </div>
             )}
           </div>

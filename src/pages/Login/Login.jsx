@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext, useAuthContext } from "../../contexts/AuthContext";
 import { useState } from "react";
 import { toast } from 'react-toastify';
+// import "./login.css"
 
 export function Login() {
 
@@ -30,6 +31,7 @@ export function Login() {
     }
   }
 
+
   const loginAsGuest =(e) => {
     e.preventDefault()
     setUserData(guestUserData)
@@ -40,43 +42,43 @@ const [showPassword,setShowPassword] = useState(false)
 
   return (
     <>
-      <div>
-        <h3>Log In</h3>
+      <div className="login-form-contianer">
         
-    <form >
+    <form  className="login-form">
+        <h3>Log In</h3>
         <label htmlFor="email">
-          Email:
+          Email:     </label>
           <input
             id="email"
             value={userData.email}
             type="email"
-            placeholder="Enter your Email"
+            placeholder="Enter your email"
             onChange={e => setUserData(data=>({...data,email:e.target.value}))}
             required
           />
-        </label>
+   
         <label htmlFor="password">
-          Password:
+          Password:    </label>
           <input
             id="password"
             value={userData.password}
             type={showPassword ? 'text' : 'password'}
-            placeholder="Enter Your Password"
+            placeholder="***************"
             onChange={e => setUserData(data=>({...data,password:e.target.value}))}
             required
           />
-          <span onClick={()=>setShowPassword(!showPassword)}>{showPassword?"hide":"show"}</span>
-        </label>
-        <button onClick={loginHandler}>
+    
+          <span  className="show-hide-btn" onClick={()=>setShowPassword(!showPassword)}>{showPassword?"hide":"show"}</span>
+        <button style={{backgroundColor:"blue"}} className="add-to-cart-btn" onClick={loginHandler}>
           Login
         </button>
-        <button onClick={loginAsGuest}>
+        <button className="add-to-cart-btn" onClick={loginAsGuest}>
           Login as Guest
         </button>
-        </form>
-        <button onClick={()=>navigate("/signup")}>
-          SignUp
+        <button  style={{backgroundColor:"black"}} className="add-to-cart-btn" onClick={()=>navigate("/signup")}>
+          Create New Account
         </button>
+        </form>
       </div>
     </>
   );

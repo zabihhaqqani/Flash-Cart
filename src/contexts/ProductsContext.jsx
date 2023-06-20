@@ -24,7 +24,7 @@ export function ProductsProvider({ children }) {
   const guestUserAddress = [{
     id:1,
     userName:"Zabih",
-    city:"Hyderabad",
+    city:"98,  Narayanguda, Taj Hotel, Hyderabad",
     state:"Telangana",
     country:"India",
     pincode: 300050,
@@ -138,7 +138,7 @@ const navigate = useNavigate()
   }, [dispatch,isUserLoggedIn]);
 
 
-  const discount = state?.cartData?.reduce((acc,curr)=>acc * curr.qty,200)
+  const discount = state?.cartData?.reduce((acc,curr)=>acc ,200)
 
   return (
     <ProductsContext.Provider value={{...state,showSingleProduct,dispatch,getSingleProduct,guestUserAddress,discount,showLoader,setShowLoader}}>

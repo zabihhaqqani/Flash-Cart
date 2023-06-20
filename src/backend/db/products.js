@@ -155,7 +155,7 @@ export const products = [
     specification: "6.81-inch AMOLED, Snapdragon 888, 128GB",
     price: 799,
     deliveryInDays: 4,
-    url: "https://m.media-amazon.com/images/I/511KWcTQoAL._AC_UF894,1000_QL80_.jpg",
+    url: "https://m.media-amazon.com/images/I/71XmlboxNZL._SX679_.jpg",
     rating: 3,
   },
   {
@@ -165,7 +165,7 @@ export const products = [
     specification: "6.5-inch OLED, Snapdragon 888, 256GB",
     price: 1299,
     deliveryInDays: 5,
-    url: "https://m.media-amazon.com/images/I/61SPQ9SnfpL.jpg",
+    url: "https://ovantica.com/pub/media/catalog/product/cache/359e51c8e354c4e2b5af98e814f93978/s/o/sony_xperia1-ii-purple-128-gb.png",
     rating: 3.75,
   },
   {
@@ -175,7 +175,7 @@ export const products = [
     specification: "6.8-inch OLED, Snapdragon 765, 128GB",
     price: 599,
     deliveryInDays: 3,
-    url: "https://m.media-amazon.com/images/I/71epYJfrPnL._SL1500_.jpg",
+    url: "https://ovantica.com/pub/media/catalog/product/cache/359e51c8e354c4e2b5af98e814f93978/l/g/lg_velvet_4g_launched_with_snapd-1.png",
     rating: 3.75,
   },
   {
@@ -185,7 +185,7 @@ export const products = [
     specification: "6.7-inch OLED, Snapdragon 865, 256GB",
     price: 899,
     deliveryInDays: 4,
-    url: "https://m.media-amazon.com/images/I/81saLvKN2XL._SX522_.jpg",
+    url: "https://www.reliancedigital.in/medias/Motorola-EDGE-30-Mobile-Phone-492912754-i-2-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w0NjQ4NnxpbWFnZS9qcGVnfGltYWdlcy9oZjcvaDcyLzk4MzE2ODY4NjQ5MjYuanBnfDdhYmUyZDEzYjRiOWY0MTI3OWJhYzllZTU4YzZiOTU2ZjlkYzk1M2E5ZDNiOTVkZWJlMDkzY2MxZDhlNWYyYzc",
     rating: 4.75,
   },
   {

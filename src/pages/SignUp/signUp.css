@@ -1,0 +1,42 @@
+.login-form{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: white;
+    padding: 0.5rem 2.5rem 2.5rem 2.5rem; 
+    margin: 1rem;
+    border-radius: 5px;
+}
+.login-form-contianer{
+    display: flex;
+    justify-content: center;
+}
+
+.login-form input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.login-form label{
+    text-align: left;
+     margin: 0.5rem 0rem;
+}
+
+.show-hide-btn{
+    background-color: black;
+    color: white;
+    display: inline;
+    margin: 1rem 0rem;
+    padding: 1rem;
+    border-radius: 5px;
+    padding: 0.2rem;
+
+}
+
+.have-account{
+    padding: 1rem 0rem 0rem 0rem;
+}
+.have-account:hover{
+    cursor: pointer;
+}

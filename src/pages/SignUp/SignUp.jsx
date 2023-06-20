@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import "./signUp.css"
 
 export function SignUp() {
   const navigate = useNavigate();
@@ -36,10 +37,10 @@ export function SignUp() {
   };
   return (
     <>
-      <div className="signup-conatiner">
+      <div className="login-form-contianer">
+        <form className="login-form" onSubmit={(e) => signUpHandler(e)}>
         <h2>SignUp</h2>
-        <form onSubmit={(e) => signUpHandler(e)}>
-          <label htmlFor="firstName">First Name</label>
+          <label htmlFor="firstName">First Name:</label>
           <input
             type="text"
             id="firstName"
@@ -50,7 +51,7 @@ export function SignUp() {
               setUserDetails(data => ({ ...data, firstName: e.target.value }))
             }
           />
-          <label htmlFor="lastName">Last Name</label>
+          <label htmlFor="lastName">Last Name:</label>
           <input
             type="text"
             id="lastName"
@@ -61,7 +62,7 @@ export function SignUp() {
               setUserDetails(data => ({ ...data, lastName: e.target.value }))
             }
           />
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -72,11 +73,13 @@ export function SignUp() {
               setUserDetails(data => ({ ...data, email: e.target.value }))
             }
           />
-          <label htmlFor="password">password</label>
+          <label htmlFor="password">Password:</label>
           <input
             type={showPassword ? "text" : "password"}
             id="password"
             required
+            placeholder="***************"
+
             minlength="5"
             maxlength="10"
             value={userDetails.password}
@@ -84,15 +87,16 @@ export function SignUp() {
               setUserDetails(data => ({ ...data, password: e.target.value }))
             }
           />
-          <span
+          <span className="show-hide-btn"
             onClick={() => setShowPassword(showPassword => !showPassword)}
           >
             {showPassword ? "hide" : "show"}
           </span>
-          <label htmlFor="confirm-password">Confirm Password</label>
+          <label htmlFor="confirm-password">Confirm Password:</label>
           <input
             type={showPassword2 ? "text" : "password"}
             id="confirm-password"
+            placeholder="***************"
             required
             minlength="5"
             maxlength="10"
@@ -104,16 +108,16 @@ export function SignUp() {
               }))
             }
           />
-          <span onClick={() => setShowPassword2(!showPassword2)}>
+          <span className="show-hide-btn" onClick={() => setShowPassword2(!showPassword2)}>
             {showPassword2 ? "hide" : "show"}
           </span>
-          <button type="submit" className="signup-button">
+          <button type="submit" className="add-to-cart-btn">
             Signup
           </button>
-        </form>
-        <p onClick={() => navigate("/login")}>
+        <p className="have-account" onClick={() => navigate("/login")}>
           Already have an account <i class="fa-solid fa-angle-right"></i>
         </p>
+        </form>
       </div>
     </>
   );

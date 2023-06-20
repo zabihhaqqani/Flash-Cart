@@ -1,0 +1,81 @@
+.user-detail-address{
+      background-color: white;
+    margin: 0rem 1rem;
+    padding: 0rem 1rem;
+    width: 400px;
+    /* border: 1px solid; */
+    text-align: left;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+      box-shadow: -10px 7px 5px 0px rgba(0,0,0,0.19);
+-webkit-box-shadow: -8px 7px 5px 0px rgba(0,0,0,0.5);
+padding: 1rem;
+-moz-box-shadow: -10px 7px 5px 0px rgba(0,0,0,0.19);
+}
+
+.user-detail-address button{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    width: 100px;
+    background-color: red;
+}
+
+.login-form-container-address{
+    display: flex;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color:rgba(52, 46, 46, 0.75) ;
+    justify-content: center;
+}
+
+.address-container-main{
+    display: flex;
+
+}
+
+.add-new-address{
+     padding: 0.5rem;
+    margin: 1rem 0rem 0rem 0rem;
+    width: 100%;
+    border: none;
+     font-family: "Poppins", sans-serif;
+    background-color:  #fc4c51;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    margin: 1rem 1rem;
+    width: 20%;
+    justify-content: center;
+}
+
+
+.add-new-address:hover{
+    cursor: pointer;
+}
+.login-form-address{
+display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: white;
+    padding: 0.5rem 2.5rem 2.5rem 2.5rem; 
+    margin: 1rem;
+    border-radius: 5px;
+    height: fit-content;
+}
+
+.login-form-address input{
+        padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid grey;
+    /* margin: 1rem; */
+}
+
+.login-form-address input{
+    margin: 0.5rem 0rem;
+}
