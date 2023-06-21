@@ -1,14 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../contexts/AuthContext";
 import { useOrderContext } from "../../contexts/OrderContext";
-import { useProductContext } from "../../contexts/ProductsContext";
 import "./orderHistory.css"
 export function OrderHistory() {
     // const {orderHistory} = useOrderContext()
-    const {state} = useAuthContext()
-    const navigate = useNavigate()
+    // const {state} = useAuthContext()
     const {orderState} = useOrderContext()
-    const {cartData} = useProductContext()
 
     console.log(orderState?.orderHistory.length)
 

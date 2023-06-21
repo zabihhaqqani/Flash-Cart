@@ -8,9 +8,8 @@ export function Filters() {
     updateFilterValue,
     handleCategoryChange,
     handleSortChange,
-    minRating,
-    maxRating,
-    valueRating,defaultRange,values,range,
+   
+    range,
     category,
     sort
 

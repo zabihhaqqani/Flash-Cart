@@ -1,6 +1,6 @@
 // import "../Home/Category.css";
 import { useEffect, useState } from "react";
-import sale from "./sale.png";
+
 // import { CategoryContext } from "../../contexts/CategoryContext";
 import "../Categories/Category.css";
 import { useFilterContext } from "../../contexts/FilterContext";
@@ -13,7 +13,7 @@ import { Loader } from "../../utils/Loader";
 export function Category() {
   // const { categoriesData, loading } = useContext(CategoryContext);
     const [showLoader,setShowLoader] = useState()
-    const {categoriesData,loading} = useProductContext()
+    const {categoriesData} = useProductContext()
   const {dispatch} = useFilterContext();
   
   const categorySelector = (categoryName) => {

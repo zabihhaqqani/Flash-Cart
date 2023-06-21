@@ -18,7 +18,7 @@ export function ProductPage() {
     // const {wishListProducts,removeFromWishlist,addToWishlist,wishlistDispatch} = useWishlistContext()
     // const {addToCart,cartItems,cartDispatch} = useCartContext()
     const navigate = useNavigate()
-    const {getSingleProduct,dispatch,cartData,wishListData} = useProductContext()
+    const {dispatch,cartData,wishListData} = useProductContext()
     const {isUserLoggedIn} = useAuthContext()
     // console.log(singleProduct)
     return <>{

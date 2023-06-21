@@ -5,13 +5,12 @@ import { useProductContext } from "../../contexts/ProductsContext";
 import { AddressForm } from "../address/AddressForm";
 import { EditAddress } from "../address/EditAddress";
 import { useOrderContext } from "../../contexts/OrderContext";
-import { toast } from 'react-toastify';
 
 
 export function AddressCheckout () {
     const navigate= useNavigate()
-      const { addressData,dispatch, } = useProductContext();
-    const {orderDispatch,orderState} = useOrderContext()
+      const { addressData } = useProductContext();
+    const {orderDispatch} = useOrderContext()
       const [selectedAddress,setSelectedAddress ] = useState()
 const [addAddress, setAddAddress] = useState(false);
 

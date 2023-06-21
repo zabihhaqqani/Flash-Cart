@@ -5,22 +5,22 @@ import { useProductContext } from "../../contexts/ProductsContext";
 import { Filters } from "../Filter/Filters";
 import "../Products/Products.css";
 // import { useCartContext } from "../../contexts/CartContext";
-import { Navigate, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import { addToCartHandler } from "../../utils/addToCart";
 import { IsItemInCart } from "../../utils/isItemInCart";
 import { addToWishlistHandler } from "../../utils/addToWishlist";
 import { isItemInWishlList } from "../../utils/isIteminWishlist";
 import { removeFromWishlistHandler } from "../../utils/removeFromWishlist";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { useLocation } from "react-router-dom";
+
 import { toast } from 'react-toastify';
 import { Loader } from "../../utils/Loader";
   import "../Products/Products.css";
 
   
 export function Products() {
-  const { products, isLoading } = useProductContext();
-  const { sort, range, inputValue, categorySelection, category } =
+  const { products } = useProductContext();
+  const { sort, range, inputValue,  category } =
     useFilterContext();
   // const { addToWishlist, iconName, removeFromWishlist, wishListProducts } =
   //   useWishlistContext();
@@ -60,24 +60,24 @@ export function Products() {
     );
     return sortedProducts;
   };
-  const sortByTypes = (products, name) => {
-    const sortedProducts = [...products]?.filter(
-      product => product.category === name
-    );
-    return sortedProducts;
-  };
+  // const sortByTypes = (products, name) => {
+  //   const sortedProducts = [...products]?.filter(
+  //     product => product.category === name
+  //   );
+  //   return sortedProducts;
+  // };
 
-  const clearAllFilter = () => {
-    const sortedProducts = [...products]?.map(product => product);
-    return sortedProducts;
-  };
+  // const clearAllFilter = () => {
+  //   const sortedProducts = [...products]?.map(product => product);
+  //   return sortedProducts;
+  // };
 
   const sortedProductsByPrice = sortByPrice(products, sort);
   const sortedProductsByRange = sortByRange(sortedProductsByPrice, range);
   const sortedBySearch = sortBySearch(sortedProductsByRange, inputValue);
-  const featuredProducts = sortByTypes(sortedBySearch, categorySelection);
+  // const featuredProducts = sortByTypes(sortedBySearch, categorySelection);
 
-  const clearFilter = clearAllFilter(featuredProducts);
+  // const clearFilter = clearAllFilter(featuredProducts);
 
   const sortedProducts = sortByCategory(sortedBySearch, category);
 
