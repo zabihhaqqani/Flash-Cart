@@ -115,7 +115,7 @@ export function SignUp() {
             Signup
           </button>
         <p className="have-account" onClick={() => navigate("/login")}>
-          Already have an account <i class="fa-solid fa-angle-right"></i>
+          Already have an account <i className="fa-solid fa-angle-right"></i>
         </p>
         </form>
       </div>

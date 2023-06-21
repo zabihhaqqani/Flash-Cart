@@ -1,3 +1,3 @@
 export function Error() {
-    return <><h1>Error page not found</h1></>
+    return <><h3>Error page not found</h3></>
 }

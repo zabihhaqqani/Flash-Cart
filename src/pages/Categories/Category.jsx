@@ -1,5 +1,5 @@
 // import "../Home/Category.css";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import sale from "./sale.png";
 // import { CategoryContext } from "../../contexts/CategoryContext";
 import "../Categories/Category.css";

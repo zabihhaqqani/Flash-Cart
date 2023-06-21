@@ -5,7 +5,7 @@ import { useAuthContext } from '../contexts/AuthContext';
 
 export function AuthHandler () {
 
-  const {state,dispatch,email,password} = useAuthContext()
+  const {dispatch,email,password} = useAuthContext()
 
   
   const userLogin = async () => {

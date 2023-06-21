@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+
 // import {  useWishlistContext } from "../../contexts/WishlistContext"
 // import { useCartContext } from "../../contexts/CartContext";
 import { IsItemInCart } from "../../utils/isItemInCart";
 import { useNavigate } from "react-router-dom";
 import { addToCartHandler } from "../../utils/addToCart";
-import { removeFromCartHandler } from "../../utils/removeFromCart";
 import { removeFromWishlistHandler } from "../../utils/removeFromWishlist";
 import { useProductContext } from "../../contexts/ProductsContext";
 import { useAuthContext } from "../../contexts/AuthContext";
@@ -14,7 +13,7 @@ export function Wishlist() {
   
     // const {wishListProducts,removeFromWishlist,wishlistDispatch} = useWishlistContext()
     // const {cartItems,removeFromCart,addToCart,cartDispatch} = useCartContext()
-  const {showSingleProduct,dispatch,cartData,wishListData,getSingleProduct} = useProductContext()
+  const {dispatch,cartData,wishListData,getSingleProduct} = useProductContext()
   const {isUserLoggedIn} = useAuthContext()
     const navigate = useNavigate()
     return (<>
@@ -44,7 +43,7 @@ export function Wishlist() {
                     <h3>{name}</h3>
                     <p>₹{price}</p>
                     <p>{category}</p>
-                    <p>Rating: {rating}<i style={{color:"orange"}} class="fa-solid fa-star"></i></p>
+                    <p>Rating: {rating}<i style={{color:"orange"}} className="fa-solid fa-star"></i></p>
                     </div>
 
                <button onClick={(e)=>{if(IsItemInCart(cartData,_id)){

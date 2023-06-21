@@ -12,29 +12,33 @@ import { FilterContextProvider } from "./contexts/FilterContext";
 // import { WishlistProvider } from "./contexts/WishlistContext";
 // import { CartProvider } from "./contexts/CartContext";
 import { AuthProvider,AuthContext } from "./contexts/AuthContext";
+import { OrderProvider,OrderContext } from "./contexts/OrderContext";
 
 // export { CategoryContext };
 export { ProductsContext };
 export {AuthContext}
+export { OrderContext };
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+            <OrderProvider>
       <AuthProvider>
         {/* <CategoryProvider> */}
-          <ProductsProvider>
-            <FilterContextProvider>
-              {/* <WishlistProvider> */}
-                {/* <CartProvider> */}
-                  <App />
-                {/* </CartProvider> */}
-              {/* </WishlistProvider> */}
-            </FilterContextProvider>
-          </ProductsProvider>
+        <ProductsProvider>
+          <FilterContextProvider>
+            {/* <WishlistProvider> */}
+            {/* <CartProvider> */}
+              <App />
+            {/* </CartProvider> */}
+            {/* </WishlistProvider> */}
+          </FilterContextProvider>
+        </ProductsProvider>
         {/* </CategoryProvider> */}
       </AuthProvider>
+            </OrderProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

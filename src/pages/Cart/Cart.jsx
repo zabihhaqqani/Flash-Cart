@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 // import { useCartContext } from "../../contexts/CartContext";
 // import { useWishlistContext } from "../../contexts/WishlistContext";
 import {setCartQuantity} from "../../utils/cartQuantity"
@@ -17,7 +17,7 @@ export function Cart() {
   // const { cartItems, removeFromCart, totalAmount,cartQuantity } = useCartContext();
   // const { removeFromWishlist, wishListProducts, addToWishlist,wishlistDispatch } =
   //   useWishlistContext();
-const {dispatch,showSingleProduct,discount} = useProductContext()
+const {dispatch,discount} = useProductContext()
     // const {cartDispatch} = useCartContext()
     const navigate = useNavigate()
     const {cartData,wishListData,getSingleProduct} = useProductContext()
@@ -60,7 +60,7 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                     <p>₹{price}</p>
                     <p>₹{category}</p>
                     <p>Quantity</p>
-                    <p>Rating: {rating}<i style={{color:"orange"}} class="fa-solid fa-star"></i></p>
+                    <p>Rating: {rating}<i style={{color:"orange"}} className="fa-solid fa-star"></i></p>
                     </div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                       <button
@@ -150,7 +150,7 @@ const {dispatch,showSingleProduct,discount} = useProductContext()
                   Discount:  
                 </p>
                 <p >
-                    ₹{cartData?.reduce((acc,curr)=>acc * curr.qty,200)}
+                   -₹{discount}
                 </p>
                 </div>
                 <hr  />

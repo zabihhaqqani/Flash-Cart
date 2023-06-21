@@ -93,6 +93,7 @@ export default function ProductReducer(state, action) {
         ...state,
         singleProduct: [action.payload],
       };
+     
     default:
       return state;
   }

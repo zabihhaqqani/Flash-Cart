@@ -25,7 +25,6 @@ export function Products() {
   // const { addToWishlist, iconName, removeFromWishlist, wishListProducts } =
   //   useWishlistContext();
   // const { addToCart, cartButton, cartItems } = useCartContext();
-  const { showSingleProduct } = useProductContext();
   const { isUserLoggedIn } = useAuthContext();
   const {getSingleProduct,wishListData} = useProductContext()
 
@@ -87,7 +86,6 @@ export function Products() {
   // console.log(name)
   // const { cartDispatch } = useCartContext();
   // const { wishlistDispatch } = useWishlistContext();
-  const location = useLocation();
   const {dispatch,cartData} = useProductContext()
   const [showLoader,setShowLoader] = useState()
  
@@ -159,7 +157,7 @@ export function Products() {
                       <h3>{name}</h3>
                       <p>MRP: <strong> ₹{price}</strong></p>
                       <p>{category}</p>
-                      <p>Rating: {rating}<i style={{color:"orange"}} class="fa-solid fa-star"></i></p>
+                      <p>Rating: {rating}<i style={{color:"orange"}} className="fa-solid fa-star"></i></p>
                     </div>
 
                     <button

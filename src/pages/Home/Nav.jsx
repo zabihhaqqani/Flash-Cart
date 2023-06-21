@@ -27,14 +27,14 @@ export function Nav() {
             Flash<span className="cart">Cart</span>
           </NavLink>
         </h2>
-        <div onClick={(e)=>console.log(e.currentTarget.innerText)} class="wrapper">
+        <div onClick={(e)=>console.log(e.currentTarget.innerText)} className="wrapper">
         <input
           onChange={e => searchFilter(e)}
           className="search-bar"
           placeholder="Search"
           type="text"
         />
-         {/* <button class="clear">X</button> */}
+        
          </div>
         <div className="nav-icons">
           <NavLink className="explore" style={getActive} to="/products">
@@ -43,7 +43,7 @@ export function Nav() {
           {/* <button className="login-btn">Login</button> */}
           {!isUserLoggedIn ? (
             <i
-              class="fa-solid fa-user fa-lg"
+              className="fa-solid fa-user fa-lg"
               onClick={() => navigate("/login")}
               
             ></i>
@@ -53,10 +53,7 @@ export function Nav() {
               {user?.firstName}
             </p>
           )}
-          {/* <i
-              class="fa-solid fa-user fa-lg"
-              onClick={() => navigate("/login")}
-            ></i> */}
+        
           <NavLink style={getActive} to="/wishlist">
             {" "}
             <i className="fa-solid fa-heart fa-lg">

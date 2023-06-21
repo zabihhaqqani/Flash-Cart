@@ -1,13 +1,39 @@
+import { useNavigate } from "react-router-dom";
+import { useOrderContext } from "../../contexts/OrderContext";
 import { useProductContext } from "../../contexts/ProductsContext";
+// import { Address } from "../address/Address";
 import "../checkout/Checkout.css"
+import { AddressCheckout } from "./AddressCheckout";
+import { toast } from 'react-toastify';
+
+import clearCartItems from "../../utils/removeAllFromCart";
 
 export function Checkout() {
   const { cartData, discount } = useProductContext();
-  const deliveryCharge = 200;
+  const {orderState,orderDispatch} = useOrderContext()
+  const {dispatch} = useProductContext()
+   const navigate = useNavigate()
+   const deliveryCharge = 200;
+   const totalAmt = cartData?.reduce(
+     (total, curr) =>
+     total + curr.price * curr.qty - discount + deliveryCharge,
+     0
+     )
+     const orderData = {
+       price:totalAmt,
+        delivery:deliveryCharge,
+        orderProducts:[...cartData]
+
+     }
   return (
     <div>
-      <h3>Check out page</h3>
+
+
+      <h3 style={{margin:"1rem"}}>Check out page</h3>
+    <div className="checkout-container-main">
       {/* <AddressContainer/> */}
+      {cartData?.length>0?  <AddressCheckout/>:''}
+
       {cartData?.length>0? <div className="checkout-card-container">
         <h3>Order Details:</h3>
         <div className="checkout-card-container-p">
@@ -32,17 +58,44 @@ export function Checkout() {
            
            <strong>Total Price : </strong>  </p>
             <p><strong>
-            ₹{cartData?.reduce(
-              (total, curr) =>
-                total + curr.price * curr.qty - discount + deliveryCharge,
-              0
-            )}
+            ₹{totalAmt}
           </strong>
       </p>
         </div>
-        <button className="add-to-cart-btn">Place Order</button>
-      </div>: <p>No Items in Checkout!</p> }
+        {orderState?.addressDetails&&<div style={{textAlign:"left"}}>
+          <hr />
+          {orderState?.addressDetails&&<h4>Delivery Address:</h4>}
+          
+          <p>{orderState?.addressDetails?.userName}</p>
+          <p>{orderState?.addressDetails?.city}</p>
+          <p>{orderState?.addressDetails?.state}</p>
+          <p>{orderState?.addressDetails?.country}</p>
+          <p>{orderState?.addressDetails?.pincode}</p>
+          
+        </div>}
+        
+        {orderState?.addressDetails===undefined?<p style={{margin:"1rem"}}>Add Address To Place Order</p>: <button 
+        onClick={()=>{
+        orderDispatch({type:"SET_ORDER_HISTORY",payload:orderData})
+          toast.success("Order Placed!")
+          
+
+
+        clearCartItems(dispatch, cartData);
+
+       
+                            navigate("/order-history")  
+          
+        }
+       
+        }
+        className="add-to-cart-btn">Place Order</button>}
+        {/* <button className="add-to-cart-btn">Place Order</button> */}
+
+        {/* <button className="add-to-cart-btn">Check Order History</button> */}
+      </div>: <h3 style={{margin:"1rem"}}>No Items in Checkout!</h3> }
      
     </div>
+        </div>
   );
 }

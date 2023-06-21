@@ -2,9 +2,9 @@ import axios from "axios";
 import {
   createContext,
   useContext,
-  useEffect,
+  
   useReducer,
-  useState,
+  
 } from "react";
 import { AuthReducer } from "../reducer/AuthReducer";
 import { useLocation, useNavigate } from "react-router-dom";

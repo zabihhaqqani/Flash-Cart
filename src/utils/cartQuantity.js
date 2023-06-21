@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useProductContext } from "../contexts/ProductsContext";
 
 export const setCartQuantity = async (dispatch, itemId, type) => {
   

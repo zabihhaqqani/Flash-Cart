@@ -14,7 +14,7 @@ export function UserDetails() {
         <p onClick={() => navigate("/account-details/userdetails/address")}>
           Addresses
         </p>
-        <p> Order History</p>
+        <p onClick={()=>navigate("/order-history")}> Order History</p>
         </div>
       </div>
       <div className="user-detail-container">

@@ -76,11 +76,11 @@ export function ProductPage() {
                     <h3>{name}</h3>
                     <p>₹{price}</p>
                     <p><strong>Category:</strong> {category}</p>
-                    <p>Rating: {rating}<i style={{color:"orange"}} class="fa-solid fa-star"></i></p>
+                    <p>Rating: {rating}<i style={{color:"orange"}} className="fa-solid fa-star"></i></p>
                     <p>Delivery: {deliveryInDays} Days</p>
-                    <p><i class="fa-solid fa-tag"></i> Fastest Delivery</p>
-                    <p> <i class="fa-solid fa-tag"></i> Inclusive of All Taxes</p>
-                    <p><i class="fa-solid fa-tag"></i> Cash On Delivery Available</p>
+                    <p><i className="fa-solid fa-tag"></i> Fastest Delivery</p>
+                    <p> <i className="fa-solid fa-tag"></i> Inclusive of All Taxes</p>
+                    <p><i className="fa-solid fa-tag"></i> Cash On Delivery Available</p>
                  </div>            
                   <button
                       onClick={e => {

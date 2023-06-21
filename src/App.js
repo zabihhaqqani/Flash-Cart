@@ -8,17 +8,17 @@ import { Cart } from "./pages/Cart/Cart";
 import { RequiresAuth } from "./Auth/RequiresAuth";
 import { Login } from "./pages/Login/Login";
 import { ProductPage } from "./pages/ProductDetailPage/ProductPage";
-import { AuthHandler } from "./Auth/AuthHandler";
+
 import { SignUp } from "./pages/SignUp/SignUp";
 import { useAuthContext } from "./contexts/AuthContext";
 import { UserDetails } from "./pages/UserDetails/UserDetails";
 import { Address } from "./pages/address/Address";
 import { EditAddress } from "./pages/address/EditAddress";
 import { Checkout } from "./pages/checkout/Checkout";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Error } from "./pages/Error/Error";
-import { Footer } from "./pages/Footer/footer";
+import { OrderHistory } from "./pages/checkout/orderHistory";
   
 function App() {
   const {isUserLoggedIn} = useAuthContext()
@@ -74,6 +74,14 @@ function App() {
         <Route
           path="/account-details/userdetails/address/edit-address"
           element={<EditAddress />}
+        />
+        <Route
+          path="/order-history"
+          element={
+            <RequiresAuth>
+              <OrderHistory />
+            </RequiresAuth>
+          }
         />
         <Route path="/page-not-found" element={<Error />} />
         <Route path="*" element={<Navigate to={"/page-not-found"} />} />

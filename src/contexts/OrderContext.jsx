@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
+import { OrderReducer } from "../reducer/OrderReducer";
 
 export const OrderContext = createContext();
 
@@ -7,15 +8,22 @@ export function OrderProvider({ children }) {
  const initialState = {
   addressDetails: {},
   priceDetails: {
-    price: 0,
-    totalAmt: 0,
+    // price: 0,
+    totalPrice: 0,
     totalDiscount: 0,
   },
   orderHistory: [],
 };
 
-    // const [orderState,orderDispatch] = useState(orderReducer,initialState)
+const [orderState,orderDispatch] = useReducer(OrderReducer,initialState)
 
 
-  return <OrderContext.Provider value={{}}>{children}</OrderContext.Provider>;
+
+
+  return <OrderContext.Provider value={{orderState,orderDispatch}}>{children}</OrderContext.Provider>;
 }
+const useOrderContext = () => {
+  return useContext(OrderContext)
+}
+
+export {useOrderContext}
