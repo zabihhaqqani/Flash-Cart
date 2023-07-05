@@ -19,9 +19,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Error } from "./pages/Error/Error";
 import { OrderHistory } from "./pages/checkout/orderHistory";
-  
+
 function App() {
-  const {isUserLoggedIn} = useAuthContext()
+  const { isUserLoggedIn } = useAuthContext();
   return (
     <div className="App">
       <Nav />

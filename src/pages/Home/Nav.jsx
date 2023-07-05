@@ -12,8 +12,7 @@ export function Nav() {
   // const { wishListProducts } = useWishlistContext();
   const navigate = useNavigate();
   const { isUserLoggedIn, user } = useAuthContext();
-  const {cartData,wishListData} = useProductContext()
-  // console.log(user);
+  const { cartData, wishListData } = useProductContext();
   const getActive = ({ isActive }) => ({
     color: isActive ? "red" : "black",
     textDecoration: "none",
@@ -27,15 +26,17 @@ export function Nav() {
             Flash<span className="cart">Cart</span>
           </NavLink>
         </h2>
-        <div onClick={(e)=>console.log(e.currentTarget.innerText)} className="wrapper">
-        <input
-          onChange={e => searchFilter(e)}
-          className="search-bar"
-          placeholder="Search"
-          type="text"
-        />
-        
-         </div>
+        <div
+          onClick={(e) => console.log(e.currentTarget.innerText)}
+          className="wrapper"
+        >
+          <input
+            onChange={(e) => searchFilter(e)}
+            className="search-bar"
+            placeholder="Search"
+            type="text"
+          />
+        </div>
         <div className="nav-icons">
           <NavLink className="explore" style={getActive} to="/products">
             Explore
@@ -45,24 +46,29 @@ export function Nav() {
             <i
               className="fa-solid fa-user fa-lg"
               onClick={() => navigate("/login")}
-              
             ></i>
           ) : (
-            
-            <p className="user-name"  onClick={()=>navigate("/account-details/userdetails")}>
+            <p
+              className="user-name"
+              onClick={() => navigate("/account-details/userdetails")}
+            >
               {user?.firstName}
             </p>
           )}
-        
+
           <NavLink style={getActive} to="/wishlist">
             {" "}
             <i className="fa-solid fa-heart fa-lg">
-              <span className="icon-number">{isUserLoggedIn?wishListData?.length:"0"}</span>
+              <span className="icon-number">
+                {isUserLoggedIn ? wishListData?.length : "0"}
+              </span>
             </i>{" "}
           </NavLink>
           <NavLink style={getActive} to="/cart">
             <i className="fa-solid fa-cart-shopping fa-lg">
-              <span className="icon-number">{isUserLoggedIn?cartData?.length:"0"}</span>
+              <span className="icon-number">
+                {isUserLoggedIn ? cartData?.length : "0"}
+              </span>
             </i>{" "}
           </NavLink>
         </div>

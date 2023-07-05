@@ -12,52 +12,47 @@ import axios from "axios";
 import { getCartItems } from "../utils/getCartItems";
 import { getWishListItems } from "../utils/getWishlistItems";
 import { useAuthContext } from "./AuthContext";
-// import { useCartContext } from "./CartContext";
-// import { useWishlistContext } from "./WishlistContext";
 
 export const ProductsContext = createContext();
 
-  
-
 export function ProductsProvider({ children }) {
-
-  const guestUserAddress = [{
-    id:1,
-    userName:"Zabih",
-    city:"98,  Old City, Charminar, Hyderabad",
-    state:"Telangana",
-    country:"India",
-    pincode: 300050,
-    mobileNumber:9890990123
-  }]
+  const guestUserAddress = [
+    {
+      id: 1,
+      userName: "Zabih",
+      city: "98,  Old City, Charminar, Hyderabad",
+      state: "Telangana",
+      country: "India",
+      pincode: 300050,
+      mobileNumber: 9890990123,
+    },
+  ];
 
   const initalState = {
     isLoading: false,
     isError: false,
     products: [],
-    singleProduct:[],
-    // cartItems:[],
-    // wishListProducts:[]
-    categoriesData:[],
-    wishListData:[],
-    cartData:[],
-    iconName:'fa-regular fa-heart',
-    addressData:guestUserAddress
-};
+    singleProduct: [],
+    categoriesData: [],
+    wishListData: [],
+    cartData: [],
+    iconName: "fa-regular fa-heart",
+    addressData: guestUserAddress,
+  };
 
-const [showLoader, setShowLoader] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
 
   const encodedToken = localStorage.getItem("token");
-  const {isUserLoggedIn} = useAuthContext()
-const navigate = useNavigate()
+  const { isUserLoggedIn } = useAuthContext();
+  const navigate = useNavigate();
   // use reducer
   const [state, dispatch] = useReducer(ProductReducer, initalState);
 
   const getProductsData = async () => {
     dispatch({ type: "SET_LOADING" });
     try {
-      const {data,status} = await axios.get("/api/products");
-      if(status===200){
+      const { data, status } = await axios.get("/api/products");
+      if (status === 200) {
         dispatch({ type: "API_DATA", payload: data?.products });
       }
     } catch (err) {
@@ -82,66 +77,72 @@ const navigate = useNavigate()
 
   const getSingleProduct = async (productId) => {
     try {
-      const {status,data} = await axios.get(`/api/products/${productId}`);
-      console.log(data)
-      if(status === 200) {
-        dispatch({type:"SHOW_SINGLE_PRODUCT",payload:data?.product})
-        navigate(`/product/${productId}`)
+      const { status, data } = await axios.get(`/api/products/${productId}`);
+      console.log(data);
+      if (status === 200) {
+        dispatch({ type: "SHOW_SINGLE_PRODUCT", payload: data?.product });
+        navigate(`/product/${productId}`);
         // return data
       }
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
-  
-  const showSingleProduct = (product) => {
-  }
-  
-  const setProducts = async ()=> {
-    try {
-      const cart = await getCartItems(encodedToken)
-      const wishlist = await getWishListItems(encodedToken)
-      if(cart?.status === 200){
-        dispatch({
-          type:"SET_CART_PRODUCTS",
-          payload: cart?.data?.cart
-        })
-      }
-      if(wishlist?.status === 200) {
-        dispatch({
-          type:"SET_WISHLIST_PRODUCTS",
-          payload:wishlist?.data?.wishlist
-        })
-      }
-    }catch(error){
-      console.error(error)
-    }
-  }
+  };
 
-  
+  const showSingleProduct = (product) => {};
+
+  const setProducts = async () => {
+    try {
+      const cart = await getCartItems(encodedToken);
+      const wishlist = await getWishListItems(encodedToken);
+      if (cart?.status === 200) {
+        dispatch({
+          type: "SET_CART_PRODUCTS",
+          payload: cart?.data?.cart,
+        });
+      }
+      if (wishlist?.status === 200) {
+        dispatch({
+          type: "SET_WISHLIST_PRODUCTS",
+          payload: wishlist?.data?.wishlist,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const clearItems = () => {
     dispatch({ type: "SET_CART_PRODUCTS", payload: [] });
     dispatch({ type: "SET_WISHLIST_PRODUCTS", payload: [] });
   };
 
-
   useEffect(() => {
-    getProductsData()
-    isUserLoggedIn&&setProducts()
-    !isUserLoggedIn&& clearItems();
-    getCategoriesData()
-     setShowLoader(true);
+    getProductsData();
+    isUserLoggedIn && setProducts();
+    !isUserLoggedIn && clearItems();
+    getCategoriesData();
+    setShowLoader(true);
     setTimeout(() => {
       setShowLoader(false);
-    }, 5 * 100)
-  }, [dispatch,isUserLoggedIn]);
+    }, 5 * 100);
+  }, [dispatch, isUserLoggedIn]);
 
-
-  const discount = state?.cartData?.reduce((acc,curr)=>acc * curr.qty,200)
+  const discount = state?.cartData?.reduce((acc, curr) => acc * curr.qty, 200);
 
   return (
-    <ProductsContext.Provider value={{...state,showSingleProduct,dispatch,getSingleProduct,guestUserAddress,discount,showLoader,setShowLoader}}>
+    <ProductsContext.Provider
+      value={{
+        ...state,
+        showSingleProduct,
+        dispatch,
+        getSingleProduct,
+        guestUserAddress,
+        discount,
+        showLoader,
+        setShowLoader,
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );

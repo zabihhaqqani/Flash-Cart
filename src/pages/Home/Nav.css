@@ -10,12 +10,10 @@
   line-height: 40px;
   padding: 1rem;
   background-color: white;
-  /* flex-wrap: wrap; */
 }
-.nav-icons{
+.nav-icons {
   display: flex;
   padding-left: 1rem;
-
 }
 .cart {
   color: var(--primarycolor);
@@ -38,25 +36,23 @@
 }
 
 .nav-icons i:hover {
-  /* font-size: 25px; */
   cursor: pointer;
   transition: 0.5s;
 }
 
-.icon-number{
+.icon-number {
   position: relative;
-  top:-12px;
+  top: -12px;
   left: -8px;
   font-size: 10px;
-  background-color: #4BB543;
+  background-color: #4bb543;
   color: white;
   padding: 0.4rem;
   border-radius: 50%;
   display: inline-block;
-  /* width: 40px; */
 }
 
-.user-name:hover{
+.user-name:hover {
   cursor: pointer;
 }
 .wrapper {
@@ -69,6 +65,6 @@
   right: 0px;
 }
 
-.explore{
+.explore {
   padding-right: 2.5rem;
 }
