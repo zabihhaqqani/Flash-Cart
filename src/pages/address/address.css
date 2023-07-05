@@ -77,3 +77,9 @@
 .login-form-address input {
   margin: 0.5rem 0rem;
 }
+
+.address-container-all-main{
+    display: flex;
+    justify-content: center;
+    
+}
