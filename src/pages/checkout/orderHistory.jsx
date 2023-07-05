@@ -4,6 +4,7 @@ import "./orderHistory.css";
 export function OrderHistory() {
   const { orderState } = useOrderContext();
   const navigate = useNavigate();
+  console.log(orderState?.orderHistory?.address);
   return (
     <div
       style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
@@ -38,10 +39,11 @@ export function OrderHistory() {
               style={{ textAlign: "left" }}
             >
               {orderState?.orderHistory?.map((item) => {
-                const { delivery, price, orderProducts } = item;
+                const { delivery, price, orderProducts, address } = item;
+                console.log(address);
                 return (
                   <div className="order-history-card">
-                    <p>
+                    <div>
                       {" "}
                       <strong>Items Ordered:</strong>{" "}
                       {orderProducts?.map((item) => (
@@ -57,16 +59,16 @@ export function OrderHistory() {
                           </p>
                         </div>
                       ))}
-                    </p>
+                    </div>
                     <p>Delivery Charge: ₹{delivery}</p>
                     <p>Total Amount: ₹{price}</p>
                     <strong>Delivery To:</strong>
-                    <p>{orderState?.addressDetails?.userName}</p>
-                    <p>{orderState?.addressDetails?.city}</p>
-                    <p>{orderState?.addressDetails?.state}</p>
-                    <p>{orderState?.addressDetails?.country}</p>
-                    <p>{orderState?.addressDetails?.pincode}</p>
-                    <p>{orderState?.addressDetails?.mobileNumber}</p>
+                    <p>{address?.name}</p>
+                    <p> {address?.city}</p>
+                    <p> {address?.country}</p>
+                    <p> {address?.pincode}</p>
+
+                    {/* <OrderAddress data={orderState?.addressDetails} /> */}
                   </div>
                 );
               })}

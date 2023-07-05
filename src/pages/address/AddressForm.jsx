@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useProductContext } from "../../contexts/ProductsContext";
 import { v4 as uuid } from "uuid";
+import { toast } from "react-toastify";
 
 export function AddressForm({ setAddAddress }) {
   const { dispatch } = useProductContext();
   const [address, setAddress] = useState({
     id: uuid(),
     userName: "",
+    houseNumber:"",
     city: "",
     state: "",
     country: "",
@@ -130,6 +132,7 @@ export function AddressForm({ setAddAddress }) {
             style={{ backgroundColor: "green" }}
             className="add-to-cart-btn"
             type="submit"
+            onClick={()=> toast.success("New Address Added!")}
           >
             Add
           </button>

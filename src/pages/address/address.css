@@ -12,6 +12,8 @@
   -webkit-box-shadow: -8px 7px 5px 0px rgba(0, 0, 0, 0.5);
   padding: 1rem;
   -moz-box-shadow: -10px 7px 5px 0px rgba(0, 0, 0, 0.19);
+  margin: 1rem;
+
 }
 
 .user-detail-address button {
@@ -36,6 +38,8 @@
 
 .address-container-main {
   display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
 }
 
 .add-new-address {
@@ -81,5 +85,4 @@
 .address-container-all-main{
     display: flex;
     justify-content: center;
-    
 }

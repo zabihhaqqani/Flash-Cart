@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useProductContext } from "../../contexts/ProductsContext";
+import { toast } from "react-toastify";
 
 export function EditAddress({ editId }) {
   const { dispatch, addressData } = useProductContext();
   const [editAddress, setEditAddress] = useState({
     id: editId,
     userName: addressData?.find(({ id }) => id === editId)?.userName,
+    houseNumber: addressData?.find(({ id }) => id === editId)?.houseNumber,
     city: addressData?.find(({ id }) => id === editId)?.city,
     state: addressData?.find(({ id }) => id === editId)?.state,
     country: addressData?.find(({ id }) => id === editId)?.country,
@@ -102,9 +104,13 @@ export function EditAddress({ editId }) {
           style={{ backgroundColor: "green" }}
           className="add-to-cart-btn"
           type="submit"
-          onClick={() =>
-            dispatch({ type: "EDITED_ADDRESS", payload: [editAddress] })
-          }
+          onClick={() => {
+            dispatch({
+              type: "EDITED_ADDRESS",
+              payload: [editAddress, editId],
+            });
+             toast.success("Address Updated!");
+          }}
         >
           Edit
         </button>
