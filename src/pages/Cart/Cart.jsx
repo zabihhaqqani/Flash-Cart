@@ -44,7 +44,10 @@ export function Cart() {
                     {wishListData?.find((item) => item._id === _id) ? (
                       <i
                         style={{ color: "red" }}
-                        onClick={() => removeFromWishlistHandler(dispatch, _id)}
+                        onClick={() => {
+                          removeFromWishlistHandler(dispatch, _id);
+                              toast.success("Product removed from Wishlist!");
+                        }}
                         className="fa-solid fa-heart"
                       ></i>
                     ) : (
@@ -55,6 +58,7 @@ export function Cart() {
                             navigate("/wishlist");
                           } else {
                             addToWishlistHandler(product, dispatch, e);
+                             toast.success("Product added to Wishlist!");
                           }
                         }}
                         className="fa-regular fa-heart"
