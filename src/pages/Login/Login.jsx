@@ -58,7 +58,9 @@ export function Login() {
             id="password"
             value={userData.password}
             type={showPassword ? "text" : "password"}
-            placeholder="***************"
+            placeholder="********"
+            minlength="8"
+            maxlength="10"
             onChange={(e) =>
               setUserData((data) => ({ ...data, password: e.target.value }))
             }

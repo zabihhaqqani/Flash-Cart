@@ -77,8 +77,8 @@ export function SignUp() {
             type={showPassword ? "text" : "password"}
             id="password"
             required
-            placeholder="***************"
-            minlength="5"
+            placeholder="********"
+            minlength="8"
             maxlength="10"
             value={userDetails.password}
             onChange={(e) =>
@@ -95,9 +95,9 @@ export function SignUp() {
           <input
             type={showPassword2 ? "text" : "password"}
             id="confirm-password"
-            placeholder="***************"
             required
-            minlength="5"
+            placeholder="********"
+            minlength="8"
             maxlength="10"
             value={userDetails.confirmPassword}
             onChange={(e) =>
