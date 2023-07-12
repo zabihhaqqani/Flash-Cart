@@ -1,18 +1,16 @@
 import { useFilterContext } from "../../contexts/FilterContext";
 import { NavLink, useNavigate } from "react-router-dom";
-import "../Home/Nav.css";
-// import { useCartContext } from "../../contexts/CartContext";
-// import { useWishlistContext } from "../../contexts/WishlistContext";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useProductContext } from "../../contexts/ProductsContext";
 
+import "../Home/Nav.css";
+
 export function Nav() {
   const { searchFilter } = useFilterContext();
-  // const { cartItems } = useCartContext();
-  // const { wishListProducts } = useWishlistContext();
-  const navigate = useNavigate();
   const { isUserLoggedIn, user } = useAuthContext();
   const { cartData, wishListData } = useProductContext();
+  const navigate = useNavigate();
+
   const getActive = ({ isActive }) => ({
     color: isActive ? "red" : "black",
     textDecoration: "none",
@@ -41,7 +39,6 @@ export function Nav() {
           <NavLink className="explore" style={getActive} to="/products">
             Explore
           </NavLink>
-          {/* <button className="login-btn">Login</button> */}
           {!isUserLoggedIn ? (
             <i
               className="fa-solid fa-user fa-lg"

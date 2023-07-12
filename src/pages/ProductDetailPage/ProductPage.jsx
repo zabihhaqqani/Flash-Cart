@@ -32,7 +32,6 @@ export function ProductPage() {
               } = product;
               return (
                 <div
-                  // style={{ maxHeight: "50vh" }}
                   style={{ width: "300px" }}
                   className="category-card"
                   key={_id}

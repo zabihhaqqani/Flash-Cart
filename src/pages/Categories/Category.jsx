@@ -1,7 +1,5 @@
-// import "../Home/Category.css";
 import { useEffect, useState } from "react";
 
-// import { CategoryContext } from "../../contexts/CategoryContext";
 import "../Categories/Category.css";
 import { useFilterContext } from "../../contexts/FilterContext";
 import { NavLink } from "react-router-dom";
@@ -37,9 +35,6 @@ export function Category() {
       />
 
       <div className="categories-container-mains">
-        {/* <div> */}
-        {/* </div> */}
-
         {categoriesData?.map((category) => {
           const { _id, categoryName, description, url } = category;
           return (

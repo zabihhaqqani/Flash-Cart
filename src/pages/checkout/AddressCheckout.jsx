@@ -10,9 +10,11 @@ export function AddressCheckout() {
   const navigate = useNavigate();
   const { addressData,state} = useProductContext();
   const { orderDispatch } = useOrderContext();
+
    const [selectedAddress, setSelectedAddress] = useState(
      state?.address[0]
    );
+
   const [addAddress, setAddAddress] = useState(false);
 
   useEffect(() => {

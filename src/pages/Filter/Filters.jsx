@@ -37,21 +37,11 @@ export function Filters() {
             min="0"
             max="5"
             value={range}
-            // defaultValue="0"
             id="range"
             name="range"
             step="0.5"
             onChange={(e) => updateFilterValue(e)}
           />
-
-          {/* <input
-          type="range"
-          name="price"
-          min={minPrice}
-          max={maxPrice}
-          value={price}
-          onChange={updateFilterValue}
-        /> */}
         </div>
         <div className="checkboxes-container">
           <h4>Category</h4>

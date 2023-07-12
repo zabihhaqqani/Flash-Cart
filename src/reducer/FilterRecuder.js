@@ -27,30 +27,16 @@ export default function FilterReducer(state, action) {
       return {
         ...state,
         range: action.payload,
-
-        // MaxRangeValue: "5",
       };
     case "CLEAR_ALL_FILTERS":
-      //  filters: {
-      //         ...state.filters,
-      //         text: "",
-      //         category: "all",
-      //         company: "all",
-      //         color: "all",
-      //         maxPrice: 0,
-      //         price: state.filters.maxPrice,
-      //         minPrice: state.filters.maxPrice,
       return {
         ...state,
         sort: "",
         category: [],
         range: 0,
-
         clearFilters: action.payload,
         categoryname: ["Laptop", "Phone", "Headphones"],
-        // checkbox1: true,
         valueRating: 0,
-        // maxRating: 5,
         inputValue:''
       };
     case "SEARCH_FILTER":

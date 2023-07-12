@@ -109,7 +109,7 @@ export function EditAddress({ editId }) {
               type: "EDITED_ADDRESS",
               payload: [editAddress, editId],
             });
-             toast.success("Address Updated!");
+            toast.success("Address Updated!");
           }}
         >
           Edit

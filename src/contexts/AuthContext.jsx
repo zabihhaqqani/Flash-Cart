@@ -36,6 +36,7 @@ export function AuthProvider({ children }) {
       console.log(error?.response?.data);
     }
   };
+
   const userSignup = async (signupData) => {
     try {
       const response = await axios.post(`/api/auth/signup`, signupData);

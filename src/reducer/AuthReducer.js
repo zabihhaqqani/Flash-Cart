@@ -1,11 +1,5 @@
 export function AuthReducer(state, action) {
   switch (action.type) {
-    // case "LOGIN_AS_GUEST":
-    //   return {
-    //     ...state,
-    //     email: "adarshbalika@gmail.com",
-    //     password: "adarshbalika",
-    //   };
     case "IS_LOGGED_IN_TRUE":
       return {
         ...state,

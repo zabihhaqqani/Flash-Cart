@@ -22,6 +22,7 @@ import { OrderHistory } from "./pages/checkout/orderHistory";
 
 function App() {
   const { isUserLoggedIn } = useAuthContext();
+  
   return (
     <div className="App">
       <Nav />
@@ -86,7 +87,6 @@ function App() {
         <Route path="/page-not-found" element={<Error />} />
         <Route path="*" element={<Navigate to={"/page-not-found"} />} />
       </Routes>
-      {/* <AuthHandler /> */}
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
@@ -99,7 +99,6 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      {/* <Footer/> */}
     </div>
   );
 }

@@ -1,6 +1,3 @@
-// import { PureComponent } from "react/cjs/react.production.min";
-// import { ProductsContext } from "../ProductsContext";
-
 export default function ProductReducer(state, action) {
   switch (action.type) {
     case "SET_LOADING":
@@ -73,7 +70,6 @@ export default function ProductReducer(state, action) {
         ),
       };
     case "DELETE_ADDRESS":
-      console.log("working");
       return {
         ...state,
         addressData: state?.addressData?.filter(

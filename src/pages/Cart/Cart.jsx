@@ -37,7 +37,6 @@ export function Cart() {
                   product;
                 return (
                   <div
-                    // style={{ maxHeight: "50vh" }}
                     className="category-card"
                     key={_id}
                   >
@@ -144,8 +143,7 @@ export function Cart() {
               <div style={{ textAlign: "left" }} className="checkout-card">
                 <hr />
                 <h3 style={{ padding: "0.2rem" }}>Price Details: </h3>
-                <hr />
-                {/* <p>Items:</p> */}
+                  <hr />
                 <div>
                   {cartData?.map((product) => (
                     <div className="inner-card-cart" key={product._id}>

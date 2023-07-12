@@ -8,7 +8,7 @@ export function AddressForm({ setAddAddress }) {
   const [address, setAddress] = useState({
     id: uuid(),
     userName: "",
-    houseNumber:"",
+    houseNumber: "",
     city: "",
     state: "",
     country: "",
@@ -132,7 +132,7 @@ export function AddressForm({ setAddAddress }) {
             style={{ backgroundColor: "green" }}
             className="add-to-cart-btn"
             type="submit"
-            onClick={()=> toast.success("New Address Added!")}
+            onClick={() => toast.success("New Address Added!")}
           >
             Add
           </button>

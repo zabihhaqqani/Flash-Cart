@@ -45,7 +45,6 @@ export function ProductsProvider({ children }) {
   const encodedToken = localStorage.getItem("token");
   const { isUserLoggedIn } = useAuthContext();
   const navigate = useNavigate();
-  // use reducer
   const [state, dispatch] = useReducer(ProductReducer, initalState);
 
   const getProductsData = async () => {
@@ -82,7 +81,6 @@ export function ProductsProvider({ children }) {
       if (status === 200) {
         dispatch({ type: "SHOW_SINGLE_PRODUCT", payload: data?.product });
         navigate(`/product/${productId}`);
-        // return data
       }
     } catch (error) {
       console.error(error);

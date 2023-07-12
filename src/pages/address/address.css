@@ -3,7 +3,6 @@
   margin: 0rem 1rem;
   padding: 0rem 1rem;
   width: 400px;
-  /* border: 1px solid; */
   text-align: left;
   border-radius: 5px;
   display: flex;
@@ -18,7 +17,6 @@
 
 .user-detail-address button {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   width: 100px;
   background-color: red;
@@ -75,7 +73,6 @@
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid grey;
-  /* margin: 1rem; */
 }
 
 .login-form-address input {

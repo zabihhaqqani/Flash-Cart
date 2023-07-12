@@ -13,19 +13,24 @@ export function Address() {
     <div
       style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
     >
-      
-      <div style={{marginTop:"1rem"}} className="inner-user-detail-container">
+      <div
+        style={{ marginTop: "1rem" }}
+        className="inner-user-detail-container"
+      >
         <p onClick={() => navigate("/account-details/userdetails")}>
           Profile Information
         </p>
+
         <p
           style={{ backgroundColor: "#FC4C51", color: "white" }}
           onClick={() => navigate("/account-details/userdetails/address")}
         >
           Addresses
         </p>
+
         <p onClick={() => navigate("/order-history")}> Order History</p>
       </div>
+
       <button
         style={{ backgroundColor: "green" }}
         className="add-new-address"
@@ -33,6 +38,7 @@ export function Address() {
       >
         Add New Address
       </button>
+
       <div className="address-container-all-main">
         <div className="address-container-main">
           <div className="all-user-detail-container"></div>
@@ -40,6 +46,7 @@ export function Address() {
           {addressData?.length === 0 && (
             <h4 style={{ margin: "1rem" }}>No Addresses!</h4>
           )}
+
           {addressData?.map((data) => {
             const {
               id,
@@ -51,6 +58,7 @@ export function Address() {
               mobileNumber,
               isEdit,
             } = data;
+
             return (
               <div className="user-detail-address" key={id}>
                 <p>
@@ -71,6 +79,7 @@ export function Address() {
                 >
                   Edit
                 </button>
+
                 <button
                   className="add-to-cart-btn"
                   onClick={() =>

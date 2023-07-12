@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useOrderContext } from "../../contexts/OrderContext";
 import { useProductContext } from "../../contexts/ProductsContext";
-// import { Address } from "../address/Address";
 import "../checkout/Checkout.css";
 import { AddressCheckout } from "./AddressCheckout";
 import { toast } from "react-toastify";
@@ -34,7 +33,6 @@ export function Checkout() {
     <div>
       <h3 style={{ margin: "1rem" }}>Check out page</h3>
       <div className="checkout-container-main">
-        {/* <AddressContainer/> */}
         {cartData?.length > 0 ? <AddressCheckout /> : ""}
 
         {cartData?.length > 0 ? (
@@ -95,9 +93,6 @@ export function Checkout() {
                 Place Order
               </button>
             )}
-            {/* <button className="add-to-cart-btn">Place Order</button> */}
-
-            {/* <button className="add-to-cart-btn">Check Order History</button> */}
           </div>
         ) : (
           <h3 style={{ margin: "1rem" }}>No Items in Checkout!</h3>
