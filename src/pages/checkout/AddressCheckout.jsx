@@ -68,15 +68,16 @@ export function AddressCheckout() {
           );
         })}
       </div>
+      <div>
       <button
-        style={{ backgroundColor: "green" }}
-        className="add-new-address"
+        className="add-new-address-checkout"
         onClick={() => {
           navigate("/account-details/userdetails/address");
         }}
       >
         Add New Address
       </button>
+      </div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import "./orderHistory.css";
 export function OrderHistory() {
   const { orderState } = useOrderContext();
   const navigate = useNavigate();
-  console.log(orderState?.orderHistory?.address);
+
   return (
     <div
       style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
@@ -40,21 +40,18 @@ export function OrderHistory() {
             >
               {orderState?.orderHistory?.map((item) => {
                 const { delivery, price, orderProducts, address } = item;
-                console.log(address);
+
                 return (
                   <div className="order-history-card">
                     <div>
-                      {" "}
-                      <strong>Items Ordered:</strong>{" "}
+                      <p><strong>Items Ordered:</strong></p> 
                       {orderProducts?.map((item) => (
                         <div key={item.id}>
                           <p>
-                            {" "}
                             <strong> Order ID: </strong>
                             {item._id}
                           </p>
                           <p>
-                            {" "}
                             Name: {item.name} - {item.category}
                           </p>
                         </div>
@@ -67,8 +64,6 @@ export function OrderHistory() {
                     <p> {address?.city}</p>
                     <p> {address?.country}</p>
                     <p> {address?.pincode}</p>
-
-                    {/* <OrderAddress data={orderState?.addressDetails} /> */}
                   </div>
                 );
               })}

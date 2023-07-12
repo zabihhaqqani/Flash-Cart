@@ -12,7 +12,6 @@
   padding: 1rem;
   -moz-box-shadow: -10px 7px 5px 0px rgba(0, 0, 0, 0.19);
   margin: 1rem;
-
 }
 
 .user-detail-address button {
@@ -57,7 +56,9 @@
 
 .add-new-address:hover {
   cursor: pointer;
+  background-color: rgba(0, 128, 0, 0.411);
 }
+
 .login-form-address {
   display: flex;
   flex-direction: column;
@@ -79,7 +80,7 @@
   margin: 0.5rem 0rem;
 }
 
-.address-container-all-main{
-    display: flex;
-    justify-content: center;
+.address-container-all-main {
+  display: flex;
+  justify-content: center;
 }

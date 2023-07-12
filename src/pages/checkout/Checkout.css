@@ -18,3 +18,17 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.add-new-address-checkout{
+    background-color: green;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    font-family: poppins, "sans-serif";
+    cursor: pointer;
+}
+
+.add-new-address-checkout:hover{
+    background-color: rgba(0, 128, 0, 0.664);
+}

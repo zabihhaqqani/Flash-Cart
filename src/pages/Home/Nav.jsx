@@ -25,7 +25,6 @@ export function Nav() {
           </NavLink>
         </h2>
         <div
-          onClick={(e) => console.log(e.currentTarget.innerText)}
           className="wrapper"
         >
           <input

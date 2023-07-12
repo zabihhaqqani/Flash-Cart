@@ -13,7 +13,6 @@ export const addToWishlistHandler = async (product, dispatch) => {
       }
     );
     if (status === 201) {
-      console.log(data?.wishlist);
       dispatch({
         type: "SET_WISHLIST_PRODUCTS",
         payload: data?.wishlist,
