@@ -1,0 +1,21 @@
+.product-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  /* height: 60vh; */
+  width: fit-content;
+  padding: 1rem;
+  border: 1px solid;
+}
+
+.product-detail-card {
+  display: flex;
+  text-align: left;
+}
+
+.product-detail-card img {
+  display: block;
+  width: 100%;
+  height: 400px;
+}

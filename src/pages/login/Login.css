@@ -1,0 +1,56 @@
+.login-form-contianer {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  background-color: white;
+  padding: 0.5rem 2.5rem 2.5rem 2.5rem;
+  margin: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.login-form button {
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+}
+
+.login-form button:hover {
+  cursor: pointer;
+}
+
+.login-form input {
+  padding: 0.5rem;
+  border: 1px solid grey;
+  position: relative;
+  margin: 0.5rem;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#show-hide-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.have-account {
+  padding: 1rem 0rem 0rem 0rem;
+}
+.have-account:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,38 @@
+.user-detail-container {
+  background-color: white;
+  margin: 0rem 1rem;
+  padding: 0rem 1rem;
+  text-align: left;
+}
+.user-detail-container p {
+  margin: 1rem 0rem;
+}
+.all-user-detail-container {
+  background-color: white;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all-user-detail-container:hover {
+  cursor: pointer;
+}
+
+.inner-user-detail-container {
+  display: flex;
+}
+
+.inner-user-detail-container p {
+  padding: 1rem;
+  border: 2px solid black;
+}
+.user-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inner-user-detail-container p:hover {
+  cursor: pointer;
+}

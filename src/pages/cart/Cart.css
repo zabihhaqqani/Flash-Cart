@@ -1,0 +1,48 @@
+.cart-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.title {
+  margin-top: 1rem;
+}
+
+.checkout-btn {
+  background-color: white;
+  border: none;
+  padding: 1rem;
+  color: black;
+  cursor: pointer;
+  border: 1px solid;
+  margin: 1rem 0rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.checkout-btn:hover {
+  background-color: black;
+  color: white;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.checkout-card {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: white;
+  width: 350px;
+  height: fit-content;
+  text-align: center;
+  display: flex;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  flex-direction: column;
+}
+
+.inner-card-cart {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0rem;
+}

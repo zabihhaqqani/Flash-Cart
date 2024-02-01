@@ -1,0 +1,21 @@
+.order-history-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-detail-address-order {
+  background-color: white;
+  margin: 0rem 1rem;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  line-height: 30px;
+}
+.order-history-card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+padding: 0.5rem;
+}

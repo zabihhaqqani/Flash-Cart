@@ -1,0 +1,87 @@
+.cart-card {
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  gap: 0.25rem;
+  padding: 1rem;
+  text-align: left;
+  padding-top: 1.5rem;
+}
+
+.cart-qty-number{
+  width: 10px;
+}
+
+#wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.cart-card img {
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  padding: 1rem;
+}
+
+.cart-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quantity-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-controls button {
+  background-color: black;
+  color: white;
+  border: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.cart-btn {
+  padding: 0.5rem;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 1px solid;
+}
+
+.cart-btn:hover {
+  cursor: pointer;
+  transition: 0.25s;
+  background-color: black;
+  color: white;
+  border: 1px solid;
+}
+@media (max-width: 768px) {
+  .cart-card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+}

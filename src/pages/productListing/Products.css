@@ -1,0 +1,14 @@
+.inner-box-products {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding-top: 1rem;
+}
+.body-container {
+  display: flex;
+}
+.main {
+  flex-grow: 1;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
