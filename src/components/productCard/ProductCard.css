@@ -75,8 +75,8 @@
 .wishlist-icon {
   position: absolute;
   top: 5px;
-  right:5px;
-  background-color:black;
+  right: 5px;
+  background-color: black;
   padding: 0.5rem;
   color: white;
   cursor: pointer;
@@ -89,7 +89,7 @@
 }
 
 @media (max-width: 768px) {
-  .product-card h3{
+  .product-card h3 {
     font-size: 1rem;
   }
 
@@ -100,7 +100,7 @@
     /* align-items: center; */
   }
 
-  .card-container > :first-child{
+  .card-container > :first-child {
     margin-top: 25px;
   }
 }

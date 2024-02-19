@@ -1,13 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { addToCartHandler } from "../../utils/addToCart";
-import { IsItemInCart } from "../../utils/isItemInCart";
-import { removeFromWishlistHandler } from "../../utils/removeFromWishlist";
-import { isItemInWishlList } from "../../utils/isIteminWishlist";
-import { addToWishlistHandler } from "../../utils/addToWishlist";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { toast } from "react-toastify";
 import { useProductContext } from "../../contexts/ProductsContext";
 import "./ProductDetail.css";
+import AddToWishlist from "../buttons/AddToWishlist";
+import AddToCart from "../buttons/AddToCart";
 
 const ProductDetail = ({
   _id,
@@ -24,35 +20,14 @@ const ProductDetail = ({
   const { isUserLoggedIn } = useAuthContext();
   return (
     <div className="product-detail-container">
-      {wishListData?.find((item) => item._id === _id) ? (
-        <i
-          onClick={() => {
-            if (isUserLoggedIn) {
-              removeFromWishlistHandler(dispatch, _id);
-              toast.success("Product removed from Wishlist!");
-            }
-          }}
-          className="fa-solid fa-heart wishlist-icon"
-        ></i>
-      ) : (
-        <i
-          onClick={(e) => {
-            if (isUserLoggedIn) {
-              if (isItemInWishlList(wishListData, _id)) {
-                navigate("/wishlist");
-              } else {
-                addToWishlistHandler(product, dispatch, e);
-                toast.success("Product added to Wishlist!");
-              }
-            } else {
-              navigate("/login");
-              toast.warning("Login to access Wishlist!");
-            }
-          }}
-          className="fa-regular fa-heart wishlist-icon"
-        ></i>
-      )}
-
+      <AddToWishlist
+        wishListData={wishListData}
+        _id={_id}
+        isUserLoggedIn={isUserLoggedIn}
+        dispatch={dispatch}
+        product={product}
+        navigate={navigate}
+      />
       <div className="product-detail-card">
         <img src={url} alt={category} className="product-image" />
       </div>
@@ -83,32 +58,13 @@ const ProductDetail = ({
           <i className="fa-solid fa-tag"></i> Cash On Delivery
         </p>
 
-        <button
-          onClick={(e) => {
-            if (isUserLoggedIn) {
-              if (IsItemInCart(cartData, _id)) {
-                navigate("/cart");
-              } else {
-                addToCartHandler(product, dispatch, e);
-                toast.success("Product added to Cart!");
-              }
-            } else {
-              toast.warning("Login to access Cart!");
-              navigate("/login");
-            }
-          }}
-          value="Add to Cart"
-          className="product-btn"
-          style={{
-            backgroundColor: cartData?.find((item) => item._id === _id)
-              ? "#0096FF"
-              : "Add  to Cart",
-          }}
-        >
-          {cartData?.find((item) => item._id === _id)
-            ? "Go to Cart"
-            : "Add  to Cart"}
-        </button>
+        <AddToCart
+          isUserLoggedIn={isUserLoggedIn}
+          cartData={cartData}
+          _id={_id}
+          product={product}
+          dispatch={dispatch}
+        />
       </div>
     </div>
   );
