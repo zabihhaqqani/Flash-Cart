@@ -41,20 +41,21 @@
 
 .nav-icons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 25px;
   margin: 0rem 1.5rem;
+  align-items: center;
 }
 
 .nav-icons li {
-  /* font-size: 20px; */
   text-decoration: none;
   color: black;
   position: relative;
-
   list-style-type: none;
   cursor: pointer;
   font-weight: 450;
+  display: flex;
+  align-items: center;
 }
 
 .icon-number {
@@ -92,7 +93,6 @@
     width: 100%;
     justify-content: space-between;
     margin: 0;
-    /* margin-top: 1rem; */
     padding: 0.5rem 1.5rem;
     padding-top: 1rem;
     box-shadow: rgba(149, 157, 165, 0.116) 0px 8px 24px;
@@ -100,5 +100,5 @@
 }
 
 body {
-  margin-bottom: 40px; /* Adjust this value based on the height of your navbar */
+  margin-bottom: 40px;
 }

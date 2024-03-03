@@ -1,15 +1,15 @@
-import { useNavigate } from "react-router-dom";
-import CartCard from "../../components/cartCard/CartCard";
-import { useAuthContext } from "../../contexts/AuthContext";
-import { useProductContext } from "../../contexts/ProductsContext";
-import "./Cart.css";
+import { useNavigate } from "react-router-dom"
+import CartCard from "../../components/cartCard/CartCard"
+import { useAuthContext } from "../../contexts/AuthContext"
+import { useProductContext } from "../../contexts/ProductsContext"
+import "./Cart.css"
 
 export const Cart = () => {
   const { dispatch, discount, cartData, wishListData, getSingleProduct } =
-    useProductContext();
-  const { isUserLoggedIn } = useAuthContext();
+    useProductContext()
+  const { isUserLoggedIn } = useAuthContext()
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <div className="cart-checkout-container">
@@ -65,5 +65,5 @@ export const Cart = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

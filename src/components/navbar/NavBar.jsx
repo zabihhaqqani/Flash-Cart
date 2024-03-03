@@ -1,20 +1,15 @@
-import { useFilterContext } from "../../contexts/FilterContext";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../contexts/AuthContext";
-import { useProductContext } from "../../contexts/ProductsContext";
-import "./NavBar.css";
-import Logo from "../../assets/logo.png";
+import { useFilterContext } from "../../contexts/FilterContext"
+import { useNavigate } from "react-router-dom"
+import { useAuthContext } from "../../contexts/AuthContext"
+import { useProductContext } from "../../contexts/ProductsContext"
+import Logo from "../../assets/logo.png"
+import "./NavBar.css"
 
 export const Nav = () => {
-  const { searchFilter } = useFilterContext();
-  const { isUserLoggedIn, user } = useAuthContext();
-  const { cartData, wishListData } = useProductContext();
-  const navigate = useNavigate();
-
-  const getActive = ({ isActive }) => ({
-    color: isActive ? "red" : "black",
-    textDecoration: "none",
-  });
+  const { searchFilter } = useFilterContext()
+  const { isUserLoggedIn, user } = useAuthContext()
+  const { cartData, wishListData } = useProductContext()
+  const navigate = useNavigate()
 
   return (
     <nav className="navbar-container">
@@ -53,17 +48,23 @@ export const Nav = () => {
           <span className="material-symbols-outlined">shopping_cart</span>
         </li>
 
-        <span
-          className="material-symbols-outlined"
-          onClick={() => {
-            !isUserLoggedIn
-              ? navigate("/login")
-              : navigate("/account-details/userdetails");
-          }}
-        >
-          account_circle
-        </span>
+        <li>
+          {!isUserLoggedIn ? (
+            <span
+              className="material-symbols-outlined"
+              onClick={() => {
+                !isUserLoggedIn
+                  ? navigate("/login")
+                  : navigate("/account-details/userdetails")
+              }}
+            >
+              account_circle
+            </span>
+          ) : (
+            <span style={{ fontSize: "16px" }}>{user?.firstName}</span>
+          )}
+        </li>
       </div>
     </nav>
-  );
-};
+  )
+}
