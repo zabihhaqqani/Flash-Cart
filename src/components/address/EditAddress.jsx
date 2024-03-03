@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useProductContext } from "../../contexts/ProductsContext";
 import { toast } from "react-toastify";
 
-export const  EditAddress = ({ editId }) => {
+export const EditAddress = ({ editId }) => {
   const { dispatch, addressData } = useProductContext();
   const [editAddress, setEditAddress] = useState({
     id: editId,
@@ -19,8 +19,8 @@ export const  EditAddress = ({ editId }) => {
     e.preventDefault(e);
   };
   return (
-    <div className="login-form-container-address">
-      <form className="login-form-address" onSubmit={(e) => addressHandler(e)}>
+    <div className="address-container">
+      <form onSubmit={(e) => addressHandler(e)}>
         <h3>Edit Address</h3>
         <input
           type="text"
@@ -100,28 +100,31 @@ export const  EditAddress = ({ editId }) => {
             }))
           }
         />
-        <button
-          style={{ backgroundColor: "green" }}
-          className="add-to-cart-btn"
-          type="submit"
-          onClick={() => {
-            dispatch({
-              type: "EDITED_ADDRESS",
-              payload: [editAddress, editId],
-            });
-            toast.success("Address Updated!");
-          }}
-        >
-          Edit
-        </button>
-        <button
-          className="add-to-cart-btn"
-          type="submit"
-          onClick={() => dispatch({ type: "CANCEL_ADDRESS", payload: editId })}
-        >
-          Cancel
-        </button>
+        <div>
+          <button
+            className="btn"
+            type="submit"
+            onClick={() => {
+              dispatch({
+                type: "EDITED_ADDRESS",
+                payload: [editAddress, editId],
+              });
+              toast.success("Address Updated!");
+            }}
+          >
+            Edit
+          </button>
+          <button
+            className="btn"
+            type="submit"
+            onClick={() =>
+              dispatch({ type: "CANCEL_ADDRESS", payload: editId })
+            }
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
-}
+};

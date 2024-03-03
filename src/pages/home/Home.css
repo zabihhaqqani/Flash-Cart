@@ -115,7 +115,11 @@
   }
 
   .sale-img {
-    width: 80%;
+    /* width: 80%; */
     margin: 1rem;
+  }
+
+  .paragraph {
+    text-align: center;
   }
 }

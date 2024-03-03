@@ -2,11 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 // import "./address.css"
 import { useProductContext } from "../../contexts/ProductsContext";
-import { AddressForm } from "../address/AddressForm";
-import { EditAddress } from "../address/EditAddress";
+import { EditAddress } from "../../components/address/EditAddress";
 import { useOrderContext } from "../../contexts/OrderContext";
+import { AddressForm } from "../../components/address/AddressForm";
 
-export const  AddressCheckout = () => {
+export const AddressCheckout = () => {
   const navigate = useNavigate();
   const { addressData, state } = useProductContext();
   const { orderDispatch } = useOrderContext();
@@ -77,4 +77,4 @@ export const  AddressCheckout = () => {
       </div>
     </div>
   );
-}
+};

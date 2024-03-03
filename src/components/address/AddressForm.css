@@ -1,0 +1,33 @@
+.address-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.address-container form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  background-color: white;
+  padding: 0.5rem 2.5rem 2.5rem 2.5rem;
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+.address-container form input {
+  padding: 0.5rem;
+  border: 1px solid grey;
+  margin: 0.5rem 0rem;
+}
+
+.address-container {
+  display: flex;
+  z-index: 101;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: rgba(52, 46, 46, 0.75);
+  justify-content: center;
+}

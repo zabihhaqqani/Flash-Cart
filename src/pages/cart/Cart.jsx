@@ -4,7 +4,7 @@ import { useAuthContext } from "../../contexts/AuthContext";
 import { useProductContext } from "../../contexts/ProductsContext";
 import "./Cart.css";
 
-export const  Cart = () => {
+export const Cart = () => {
   const { dispatch, discount, cartData, wishListData, getSingleProduct } =
     useProductContext();
   const { isUserLoggedIn } = useAuthContext();
@@ -13,18 +13,20 @@ export const  Cart = () => {
 
   return (
     <div className="cart-checkout-container">
-      {cartData?.length > 0 && <h3 className="title">My Cart ({cartData?.length})</h3>}
+      {cartData?.length > 0 && (
+        <h3 className="title">My Cart ({cartData?.length})</h3>
+      )}
       <div className="cart-container">
         <div>
-        {cartData?.length > 0 ? (
-          cartData?.map((product) => (
-            <CartCard key={product._id} product={product} />
-          ))
-        ) : (
-          <h3 className="title">Your Cart is Empty!</h3>
-        )}
+          {cartData?.length > 0 ? (
+            cartData?.map((product) => (
+              <CartCard key={product._id} product={product} />
+            ))
+          ) : (
+            <h3 className="title">Your Cart is Empty!</h3>
+          )}
         </div>
-          <div style={{display:"flex"}}>
+        <div style={{ display: "flex" }}>
           {cartData?.length > 0 && (
             <div className="checkout-card">
               <hr />
@@ -62,7 +64,6 @@ export const  Cart = () => {
           )}
         </div>
       </div>
-    
     </div>
   );
-}
+};

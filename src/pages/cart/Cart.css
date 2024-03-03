@@ -4,7 +4,9 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-
+.cart-checkout-container {
+  background-color: #f7f7f7;
+}
 .title {
   margin-top: 1rem;
 }

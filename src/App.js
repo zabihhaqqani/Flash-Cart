@@ -16,8 +16,8 @@ import { Error } from "./pages/error/Error";
 import { OrderHistory } from "./pages/checkout/OrderHistory";
 import { useAuthContext } from "./contexts/AuthContext";
 import { ProductPage } from "./pages/productDetail/ProductPage";
-import { EditAddress } from "./pages/address/EditAddress";
 import { RequiresAuth } from "./RequiresAuth";
+import { EditAddress } from "./components/address/EditAddress";
 
 function App() {
   const { isUserLoggedIn } = useAuthContext();

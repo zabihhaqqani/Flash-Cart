@@ -1,7 +1,7 @@
 import { useProductContext } from "../../contexts/ProductsContext";
-import { EditAddress } from "./EditAddress";
+import { EditAddress } from "../../components/address/EditAddress";
 import { useState } from "react";
-import { AddressForm } from "./AddressForm";
+import { AddressForm } from "../../components/address/AddressForm";
 import "./Address.css";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +17,14 @@ export const Address = () => {
         style={{ marginTop: "1rem" }}
         className="inner-user-detail-container"
       >
-        <p onClick={() => navigate("/account-details/userdetails")}>
+        <p
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+          onClick={() => navigate("/account-details/userdetails")}
+        >
           Profile Information
         </p>
 
